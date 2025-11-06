@@ -10,7 +10,6 @@ import {
   type ConditionalProbs,
 } from '@/lib/dataParser';
 import { RTPBarChart } from './RTPBarChart';
-import { RTPProgressBar } from './RTPProgressBar';
 import { ConditionalProbChart } from './ConditionalProbChart';
 import { getGameIcon } from './GameIcons';
 
@@ -82,37 +81,40 @@ export function DataVisualizations({ language }: DataVisualizationsProps) {
           <h3 className="mb-6 text-2xl font-semibold text-white">
             {language === 'fr' ? 'Statistiques Globales' : 'Global Statistics'}
           </h3>
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div>
-              <RTPProgressBar
-                rtp={globalStats.rtp}
-                label={language === 'fr' ? 'RTP Global' : 'Global RTP'}
-              />
+          <div className="space-y-4">
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-xl bg-white/5 p-4">
+                <p className="text-sm text-white/60">{language === 'fr' ? 'RTP Global' : 'Global RTP'}</p>
+                <p className="text-3xl font-bold text-red-400">{globalStats.rtp.toFixed(2)}%</p>
+                <p className="text-xs text-red-300 mt-1">
+                  {language === 'fr' ? 'vs 90-95% standard' : 'vs 90-95% standard'}
+                </p>
+              </div>
+              <div className="rounded-xl bg-white/5 p-4">
+                <p className="text-sm text-white/60">{language === 'fr' ? 'Tirages totaux' : 'Total draws'}</p>
+                <p className="text-3xl font-bold text-white">{globalStats.totalDraws}</p>
+              </div>
+              <div className="rounded-xl bg-white/5 p-4">
+                <p className="text-sm text-white/60">{language === 'fr' ? 'Gains / Pertes' : 'Wins / Losses'}</p>
+                <p className="text-3xl font-bold">
+                  <span className="text-emerald-400">{globalStats.totalWins}</span>
+                  <span className="text-white/40"> / </span>
+                  <span className="text-red-400">{globalStats.totalLosses}</span>
+                </p>
+              </div>
             </div>
-            <div className="space-y-4 rounded-2xl border border-white/20 bg-white/10 p-6">
-              <div className="flex justify-between">
-                <span className="text-white/80">{language === 'fr' ? 'Tirages totaux' : 'Total draws'}:</span>
-                <span className="font-semibold text-white">{globalStats.totalDraws}</span>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-xl bg-white/5 p-4">
+                <p className="text-sm text-white/60">{language === 'fr' ? 'Enjeu total' : 'Total stake'}</p>
+                <p className="text-2xl font-bold text-white">{globalStats.totalStake.toFixed(2)} CHF</p>
               </div>
-              <div className="flex justify-between">
-                <span className="text-white/80">{language === 'fr' ? 'Gains' : 'Wins'}:</span>
-                <span className="font-semibold text-emerald-400">{globalStats.totalWins}</span>
+              <div className="rounded-xl bg-white/5 p-4">
+                <p className="text-sm text-white/60">{language === 'fr' ? 'Gains totaux' : 'Total winnings'}</p>
+                <p className="text-2xl font-bold text-white">{globalStats.totalWinnings.toFixed(2)} CHF</p>
               </div>
-              <div className="flex justify-between">
-                <span className="text-white/80">{language === 'fr' ? 'Pertes' : 'Losses'}:</span>
-                <span className="font-semibold text-red-400">{globalStats.totalLosses}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-white/80">{language === 'fr' ? 'Enjeu total' : 'Total stake'}:</span>
-                <span className="font-semibold text-white">{globalStats.totalStake.toFixed(2)} CHF</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-white/80">{language === 'fr' ? 'Gains totaux' : 'Total winnings'}:</span>
-                <span className="font-semibold text-white">{globalStats.totalWinnings.toFixed(2)} CHF</span>
-              </div>
-              <div className="flex justify-between border-t border-white/20 pt-4">
-                <span className="text-white/80">{language === 'fr' ? 'Perte nette' : 'Net loss'}:</span>
-                <span className="font-semibold text-red-400">{globalStats.netLoss.toFixed(2)} CHF</span>
+              <div className="rounded-xl bg-red-500/20 p-4">
+                <p className="text-sm text-red-300">{language === 'fr' ? 'Perte nette' : 'Net loss'}</p>
+                <p className="text-2xl font-bold text-red-400">{globalStats.netLoss.toFixed(2)} CHF</p>
               </div>
             </div>
           </div>
