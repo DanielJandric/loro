@@ -64,12 +64,7 @@ export function FullClientPage() {
     },
   ];
 
-  const datasetDetails = [
-    trans.data.period,
-    trans.data.drawCount,
-    trans.data.gamesAnalyzed,
-    trans.data.method,
-  ];
+  
 
   const financialRows = [
     {
@@ -381,30 +376,10 @@ export function FullClientPage() {
                     {trans.sections.protocolsText}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6 text-sm text-white/80 backdrop-blur-sm">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
-                    {trans.sections.syntheticDataset}
-                  </h3>
-                  <ul className="mt-3 space-y-2">
-                    {datasetDetails.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+                
               </div>
 
-              <div className="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-6 text-center">
-                <p className="text-lg font-semibold text-white mb-4">
-                  {language === 'fr' ? '16 tests mathématiques effectués' : '16 mathematical tests performed'}
-                </p>
-                <Link 
-                  href="/tests"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-purple-700 hover:to-indigo-700 hover:scale-105"
-                >
-                  {language === 'fr' ? 'Voir tous les résultats détaillés' : 'View all detailed results'}
-                  <span>→</span>
-                </Link>
-              </div>
+              
 
               <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
                 <h3 className="text-xl font-semibold text-white">{trans.sections.entropyTitle}</h3>
