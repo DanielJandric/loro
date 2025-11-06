@@ -12,24 +12,23 @@ export function TestsClientPage() {
   const testSections = [
     {
       title: t.sections.sequences,
-      icon: '🔬',
       tests: [
         {
           ...t.tests.ljungBox,
-          icon: '📊',
+          iconType: 'ljungbox' as const,
           pValue: '0.0044',
           statistic: 'Q=18.73',
           status: 'critical' as const,
         },
         {
           ...t.tests.spectral,
-          icon: '🎲',
+          iconType: 'spectral' as const,
           statistic: '3.2x amplitude',
           status: 'critical' as const,
         },
         {
           ...t.tests.cusum,
-          icon: '📈',
+          iconType: 'cusum' as const,
           statistic: '5 breakpoints',
           status: 'failed' as const,
         },
@@ -37,17 +36,16 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.temporal,
-      icon: '⏳',
       tests: [
         {
           ...t.tests.markov,
-          icon: '🔗',
+          iconType: 'markov' as const,
           statistic: '44.7% vs 15.2%',
           status: 'critical' as const,
         },
         {
           ...t.tests.mutualInfo,
-          icon: '💾',
+          iconType: 'mutualinfo' as const,
           statistic: '0.0312 bits',
           status: 'critical' as const,
         },
@@ -55,11 +53,10 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.distribution,
-      icon: '📊',
       tests: [
         {
           ...t.tests.anderson,
-          icon: '📉',
+          iconType: 'anderson' as const,
           pValue: '0.0002',
           statistic: 'AD=4.82',
           status: 'critical' as const,
@@ -68,11 +65,10 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.clustering,
-      icon: '🔍',
       tests: [
         {
           ...t.tests.kmeans,
-          icon: '🎯',
+          iconType: 'kmeans' as const,
           statistic: '3 clusters',
           status: 'failed' as const,
         },
@@ -80,17 +76,16 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.predictive,
-      icon: '🤖',
       tests: [
         {
           ...t.tests.randomForest,
-          icon: '🌲',
+          iconType: 'randomforest' as const,
           statistic: '68.3%',
           status: 'critical' as const,
         },
         {
           ...t.tests.lstm,
-          icon: '🧠',
+          iconType: 'lstm' as const,
           statistic: '71.2%',
           status: 'critical' as const,
         },
@@ -98,17 +93,16 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.gameSpecific,
-      icon: '🎰',
       tests: [
         {
           ...t.tests.rtpWindow,
-          icon: '📊',
+          iconType: 'rtp' as const,
           statistic: '-33% variance',
           status: 'failed' as const,
         },
         {
           ...t.tests.streaks,
-          icon: '🔥',
+          iconType: 'streaks' as const,
           statistic: '4 vs 7-8',
           status: 'failed' as const,
         },
@@ -116,18 +110,17 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.regulatory,
-      icon: '⚖️',
       tests: [
         {
           ...t.tests.baileySimon,
-          icon: '⚖️',
+          iconType: 'bailey' as const,
           pValue: '0.0071',
           statistic: 'BS=7.23',
           status: 'critical' as const,
         },
         {
           ...t.tests.diehard,
-          icon: '🎲',
+          iconType: 'diehard' as const,
           statistic: '11/15 failed',
           status: 'critical' as const,
         },
@@ -135,11 +128,10 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.economic,
-      icon: '💰',
       tests: [
         {
           ...t.tests.var,
-          icon: '💸',
+          iconType: 'var' as const,
           statistic: '+50% risk',
           status: 'critical' as const,
         },
@@ -147,18 +139,17 @@ export function TestsClientPage() {
     },
     {
       title: t.sections.metaAnalysis,
-      icon: '🔬',
       tests: [
         {
           ...t.tests.fisher,
-          icon: '📊',
+          iconType: 'fisher' as const,
           pValue: '<0.0000001',
           statistic: 'χ²=89.4',
           status: 'critical' as const,
         },
         {
           ...t.tests.bayesian,
-          icon: '📈',
+          iconType: 'bayesian' as const,
           statistic: '28,450:1',
           status: 'critical' as const,
         },
@@ -226,8 +217,7 @@ export function TestsClientPage() {
           {/* Test sections */}
           {testSections.map((section, idx) => (
             <section key={idx} className="mb-16">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="text-3xl">{section.icon}</span>
+              <div className="mb-6 border-b border-white/10 pb-4">
                 <h2 className="text-2xl font-bold text-white">{section.title}</h2>
               </div>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -248,7 +238,7 @@ export function TestsClientPage() {
                 <ul className="mt-4 space-y-2">
                   {t.summary.points.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-red-400">▸</span>
+                      <span className="text-red-400">—</span>
                       <span className="text-white/80">{point}</span>
                     </li>
                   ))}
@@ -260,7 +250,7 @@ export function TestsClientPage() {
                 <ul className="mt-4 space-y-2">
                   {t.summary.impactDetails.map((detail, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-amber-400">▸</span>
+                      <span className="text-amber-400">—</span>
                       <span className="text-white/80">{detail}</span>
                     </li>
                   ))}
