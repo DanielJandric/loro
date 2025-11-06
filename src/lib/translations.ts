@@ -134,3 +134,4 @@ export const translations = {
 
 export type Language = 'fr' | 'en';
 export type TranslationKey = typeof translations.fr;
+

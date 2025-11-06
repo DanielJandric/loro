@@ -165,3 +165,4 @@ export const methodologyData = {
 
 // Sequence visualization
 export const sequenceVisualization = "WLLWLLWLWLWLLLWLLWLLLWLLLLWLLWLLWLLLLLLLWLWLLLLLLWLLWLLLLLLLLWLLWLLLLLLLWLLLWLLLLLLWLLLWLLLWLWLWLWL";
+

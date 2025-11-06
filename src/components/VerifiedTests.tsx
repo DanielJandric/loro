@@ -81,41 +81,41 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
   return (
     <div className="space-y-12">
       {/* VERDICT PRINCIPAL */}
-      <section className="rounded-3xl border-4 border-red-600 bg-gradient-to-br from-red-950 via-red-900/50 to-orange-900/50 p-8 shadow-2xl">
-        <div className="text-center mb-6">
-          <p className="text-6xl font-black text-red-500 mb-4">
+      <section className="rounded-2xl border-2 border-red-600 bg-gradient-to-br from-red-950 via-red-900/50 to-orange-900/50 p-4 sm:p-6 lg:p-8 shadow-2xl">
+        <div className="text-center mb-4 sm:mb-6">
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-500 mb-2 sm:mb-4">
             {language === 'fr' ? '⚠️ SYSTÈME NON-ALÉATOIRE DÉTECTÉ ⚠️' : '⚠️ NON-RANDOM SYSTEM DETECTED ⚠️'}
           </p>
-          <p className="text-2xl text-white">
+          <p className="text-base sm:text-lg lg:text-xl text-white">
             {language === 'fr' 
               ? 'Les tests mathématiques prouvent que le système est MANIPULÉ'
               : 'Mathematical tests prove the system is MANIPULATED'}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          <div className="text-center p-4 rounded-xl bg-red-600/20 border border-red-500/50">
-            <p className="text-5xl font-black text-red-400 mb-2">p &lt; 0.01</p>
-            <p className="text-lg text-white">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mt-4 sm:mt-6">
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-400 mb-1">p &lt; 0.01</p>
+            <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'Certitude > 99%' : 'Certainty > 99%'}
             </p>
           </div>
-          <div className="text-center p-4 rounded-xl bg-orange-600/20 border border-orange-500/50">
-            <p className="text-5xl font-black text-orange-400 mb-2">-30%</p>
-            <p className="text-lg text-white">
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-orange-600/20 border border-orange-500/50">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-400 mb-1">-30%</p>
+            <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'Chute après gain' : 'Drop after win'}
             </p>
           </div>
-          <div className="text-center p-4 rounded-xl bg-red-600/20 border border-red-500/50">
-            <p className="text-5xl font-black text-red-400 mb-2">66%</p>
-            <p className="text-lg text-white">
+          <div className="text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-400 mb-1">66%</p>
+            <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'RTP (vs 90-95%)' : 'RTP (vs 90-95%)'}
             </p>
           </div>
         </div>
 
-        <div className="mt-8 p-6 rounded-xl bg-black/40 border border-red-500/30">
-          <p className="text-xl text-white text-center font-semibold">
+        <div className="mt-4 sm:mt-6 p-3 sm:p-4 lg:p-6 rounded-xl bg-black/40 border border-red-500/30">
+          <p className="text-sm sm:text-base lg:text-lg text-white text-center font-semibold">
             {language === 'fr' 
               ? "📍 CONCLUSION : Ce n'est PAS un jeu de hasard mais un algorithme programmé pour vous faire perdre plus après un gain."
               : "📍 CONCLUSION: This is NOT a game of chance but an algorithm programmed to make you lose more after a win."}
@@ -165,56 +165,56 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
       </section>
 
       {/* Test 1: Runs Test VÉRIFIÉ */}
-      <section className="relative rounded-2xl border-2 border-red-500 bg-gradient-to-br from-red-950/50 to-red-900/30 p-8 shadow-2xl">
+      <section className="relative rounded-2xl border-2 border-red-500 bg-gradient-to-br from-red-950/50 to-red-900/30 p-4 sm:p-6 lg:p-8 shadow-2xl">
         {/* Badge de significativité */}
-        <div className="absolute -top-4 right-8 flex items-center gap-2 rounded-full bg-red-600 px-6 py-2 shadow-lg">
-          <span className="text-4xl">🔴</span>
-          <span className="text-lg font-black text-white">
+        <div className="absolute -top-3 right-4 sm:right-8 flex items-center gap-1 sm:gap-2 rounded-full bg-red-600 px-3 sm:px-4 py-1 sm:py-2 shadow-lg">
+          <span className="text-lg sm:text-2xl">🔴</span>
+          <span className="text-xs sm:text-sm font-black text-white">
             {language === 'fr' ? 'TRÈS SIGNIFICATIF' : 'HIGHLY SIGNIFICANT'}
           </span>
         </div>
         
-        <h3 className="mb-6 text-2xl font-bold text-white">
+        <h3 className="mb-4 text-lg sm:text-xl font-bold text-white mt-4">
           {language === 'fr' ? 'Test 1: Test des Alternances' : 'Test 1: Alternation Test'}
         </h3>
 
         {/* Explication simple en gros */}
-        <div className="mb-6 rounded-xl bg-red-500/20 p-6 border border-red-500/30">
-          <p className="text-xl font-semibold text-white mb-2">
+        <div className="mb-4 rounded-xl bg-red-500/20 p-3 sm:p-4 border border-red-500/30">
+          <p className="text-sm sm:text-base font-semibold text-white mb-1">
             {language === 'fr' ? '🎯 CE QUE ÇA TESTE :' : '🎯 WHAT IT TESTS:'}
           </p>
-          <p className="text-lg text-white/90">
+          <p className="text-xs sm:text-sm text-white/90">
             {language === 'fr' 
               ? "Est-ce que les gains et pertes alternent trop souvent ? Dans un vrai hasard, on devrait avoir des séries plus longues."
               : "Do wins and losses alternate too often? In true randomness, we should see longer streaks."}
           </p>
         </div>
         
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl bg-black/30 p-6">
-            <p className="text-lg font-bold text-red-400 mb-4">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+          <div className="rounded-xl bg-black/30 p-3 sm:p-4">
+            <p className="text-sm font-bold text-red-400 mb-2">
               {language === 'fr' ? '❌ RÉSULTAT ANORMAL' : '❌ ABNORMAL RESULT'}
             </p>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <span className="text-white/70">{language === 'fr' ? 'Alternances observées :' : 'Observed alternations:'}</span>
-                <span className="text-3xl font-black text-red-400">{runs.runs}</span>
+                <span className="text-xs sm:text-sm text-white/70">{language === 'fr' ? 'Alternances observées :' : 'Observed alternations:'}</span>
+                <span className="text-lg sm:text-2xl font-black text-red-400">{runs.runs}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-white/70">{language === 'fr' ? 'Alternances normales :' : 'Normal alternations:'}</span>
-                <span className="text-3xl font-black text-green-400">{runs.expectedRuns.toFixed(0)}</span>
+                <span className="text-xs sm:text-sm text-white/70">{language === 'fr' ? 'Alternances normales :' : 'Normal alternations:'}</span>
+                <span className="text-lg sm:text-2xl font-black text-green-400">{runs.expectedRuns.toFixed(0)}</span>
               </div>
             </div>
           </div>
           
-          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-orange-600/30 p-6 border border-red-500/50">
-            <p className="text-lg font-bold text-white mb-2">
+          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-orange-600/30 p-3 sm:p-4 border border-red-500/50">
+            <p className="text-sm font-bold text-white mb-1">
               {language === 'fr' ? '⚠️ NIVEAU DE PREUVE' : '⚠️ PROOF LEVEL'}
             </p>
-            <p className="text-5xl font-black text-red-400 mb-2">
+            <p className="text-2xl sm:text-3xl font-black text-red-400 mb-1">
               p = {runs.pValue.toFixed(4)}
             </p>
-            <p className="text-lg text-white/90">
+            <p className="text-xs sm:text-sm text-white/90">
               {language === 'fr' 
                 ? "Probabilité que ce soit du hasard : moins de 1% !"
                 : "Probability this is random: less than 1%!"}
@@ -222,11 +222,11 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           </div>
         </div>
         
-        <div className="mt-6 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 p-6">
-          <p className="text-xl font-bold text-white mb-2">
+        <div className="mt-4 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 p-3 sm:p-4">
+          <p className="text-sm sm:text-base font-bold text-white mb-1">
             {language === 'fr' ? '💡 CE QUE ÇA PROUVE :' : '💡 WHAT THIS PROVES:'}
           </p>
-          <p className="text-lg text-white">
+          <p className="text-xs sm:text-sm text-white">
             {language === 'fr' 
               ? "Le système FORCE les alternances gain/perte pour éviter les longues séries. C'est un mécanisme de COMPENSATION artificiel, pas du hasard !"
               : "The system FORCES win/loss alternations to avoid long streaks. This is an artificial COMPENSATION mechanism, not randomness!"}
@@ -235,16 +235,16 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
       </section>
 
       {/* Test 2: Chi-Square VÉRIFIÉ */}
-      <section className="relative rounded-2xl border-2 border-orange-500 bg-gradient-to-br from-orange-950/50 to-amber-900/30 p-8 shadow-2xl">
+      <section className="relative rounded-2xl border-2 border-orange-500 bg-gradient-to-br from-orange-950/50 to-amber-900/30 p-4 sm:p-6 lg:p-8 shadow-2xl">
         {/* Badge de significativité */}
-        <div className="absolute -top-4 right-8 flex items-center gap-2 rounded-full bg-orange-600 px-6 py-2 shadow-lg">
-          <span className="text-4xl">🟠</span>
-          <span className="text-lg font-black text-white">
+        <div className="absolute -top-3 right-4 sm:right-8 flex items-center gap-1 sm:gap-2 rounded-full bg-orange-600 px-3 sm:px-4 py-1 sm:py-2 shadow-lg">
+          <span className="text-lg sm:text-2xl">🟠</span>
+          <span className="text-xs sm:text-sm font-black text-white">
             {language === 'fr' ? 'SIGNIFICATIF' : 'SIGNIFICANT'}
           </span>
         </div>
 
-        <h3 className="mb-6 text-2xl font-bold text-white">
+        <h3 className="mb-4 text-lg sm:text-xl font-bold text-white mt-4">
           {language === 'fr' ? 'Test 2: Test de Mémoire du Système' : 'Test 2: System Memory Test'}
         </h3>
 

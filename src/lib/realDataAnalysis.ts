@@ -305,3 +305,4 @@ export function calculateEntropy(draws: Draw[]) {
     entropyRatio: entropy / maxEntropy,
   };
 }
+

@@ -164,3 +164,4 @@ export const responseConcerns = [
   "Aucun certificat Gespa spécifique ni audit fourni.",
   "Absence de plan d'investigation proposé malgré les irrégularités.",
 ];
+
