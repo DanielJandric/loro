@@ -1,10 +1,15 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
+
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
 
 const nextConfig: NextConfig = {
+  pageExtensions: ["ts", "tsx", "mdx"],
   turbopack: {
-    // Avoids workspace root inference warning with multiple lockfiles
     root: __dirname,
   },
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

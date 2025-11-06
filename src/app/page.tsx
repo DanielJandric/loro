@@ -1,3 +1,4 @@
+import Intro from "@/content/intro.mdx";
 const heroStats = [
   {
     value: "66.14%",
@@ -290,6 +291,9 @@ export default function Home() {
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             📌 L'essentiel en 30 secondes
           </h2>
+          <div className="mt-4 text-slate-700">
+            <Intro />
+          </div>
           <p className="mt-6 rounded-2xl border border-red-200 bg-red-50/80 p-6 text-base leading-relaxed text-red-900">
             <strong>Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
           </p>
