@@ -109,7 +109,7 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           <div className="h-full text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-400 mb-1">66%</p>
             <p className="text-xs sm:text-sm lg:text-base text-white">
-              {language === 'fr' ? 'RTP (vs 90-95%)' : 'RTP (vs 90-95%)'}
+              {language === 'fr' ? 'RTP (vs 70%)' : 'RTP (vs 70%)'}
             </p>
           </div>
         </div>

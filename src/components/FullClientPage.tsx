@@ -91,8 +91,8 @@ export function FullClientPage() {
     {
       metric: trans.tables.globalRTP,
       observed: "66.14%",
-      benchmark: "90-95%",
-      delta: "-26.86 pts",
+      benchmark: "70%",
+      delta: "-3.86 pts",
       tone: "negative",
     },
     {

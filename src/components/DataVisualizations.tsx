@@ -86,7 +86,7 @@ export function DataVisualizations({ language }: DataVisualizationsProps) {
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'RTP Global' : 'Global RTP'}</p>
               <p className="text-2xl sm:text-3xl font-bold text-red-400">{globalStats.rtp.toFixed(2)}%</p>
               <p className="text-xs text-red-300/80 mt-1">
-                {language === 'fr' ? 'vs 90-95% standard' : 'vs 90-95% standard'}
+                {language === 'fr' ? 'vs 70% standard' : 'vs 70% standard'}
               </p>
             </div>
             <div className="h-full rounded-xl bg-white/5 border border-white/10 p-4">

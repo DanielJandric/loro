@@ -10,7 +10,7 @@ export function RTPBarChart({ gameStats, language }: RTPBarChartProps) {
   const sortedStats = [...gameStats].sort((a, b) => b.rtp - a.rtp);
 
   const maxRTP = 100;
-  const standardMinRTP = 90;
+  const standardMinRTP = 70;
   const chartHeight = 400;
   const barHeight = 30;
   const spacing = 10;
@@ -53,7 +53,7 @@ export function RTPBarChart({ gameStats, language }: RTPBarChartProps) {
         <rect
           x={leftMargin + (standardMinRTP / maxRTP) * graphWidth}
           y={topMargin}
-          width={(10 / maxRTP) * graphWidth}
+          width={(1 / maxRTP) * graphWidth}
           height={sortedStats.length * (barHeight + spacing) - spacing}
           fill="rgba(16, 185, 129, 0.1)"
           stroke="rgba(16, 185, 129, 0.3)"
@@ -61,12 +61,12 @@ export function RTPBarChart({ gameStats, language }: RTPBarChartProps) {
           strokeDasharray="4 2"
         />
         <text
-          x={leftMargin + (95 / maxRTP) * graphWidth}
+          x={leftMargin + (70 / maxRTP) * graphWidth}
           y={topMargin - 5}
           textAnchor="middle"
           className="text-xs fill-emerald-300"
         >
-          {language === 'fr' ? 'Standard 90-95%' : 'Standard 90-95%'}
+          {language === 'fr' ? 'Standard 70%' : 'Standard 70%'}
         </text>
 
         {/* Bars */}

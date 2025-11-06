@@ -57,7 +57,7 @@ export const financialRows = [
   {
     metric: "RTP global",
     observed: "66.14%",
-    benchmark: "90-95%",
+    benchmark: "70%",
     delta: "-26.86 pts",
     tone: "negative",
   },
