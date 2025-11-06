@@ -43,7 +43,7 @@ export default function OpengraphImage() {
             E-billets Loro.ch : Anomalies statistiques détectées
           </h1>
           <p style={{ fontSize: 28, color: "#cbd5e1", margin: 0 }}>
-            Trois tests (p < 0.01) • Baisse de 30% après un gain • RTP 66.14%
+            Trois tests (p &lt; 0.01) • Baisse de 30% après un gain • RTP 66.14%
           </p>
         </div>
         <div style={{ fontSize: 20, color: "#94a3b8" }}>
