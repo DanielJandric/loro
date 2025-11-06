@@ -81,19 +81,19 @@ export function DataVisualizations({ language }: DataVisualizationsProps) {
           <h3 className="mb-6 text-2xl font-semibold text-white">
             {language === 'fr' ? 'Statistiques Globales' : 'Global Statistics'}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="rounded-xl bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/20 p-4">
+          <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="h-full rounded-xl bg-gradient-to-br from-red-500/10 to-red-600/10 border border-red-500/20 p-4">
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'RTP Global' : 'Global RTP'}</p>
               <p className="text-2xl sm:text-3xl font-bold text-red-400">{globalStats.rtp.toFixed(2)}%</p>
               <p className="text-xs text-red-300/80 mt-1">
                 {language === 'fr' ? 'vs 90-95% standard' : 'vs 90-95% standard'}
               </p>
             </div>
-            <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+            <div className="h-full rounded-xl bg-white/5 border border-white/10 p-4">
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'Tirages totaux' : 'Total draws'}</p>
               <p className="text-2xl sm:text-3xl font-bold text-white">{globalStats.totalDraws}</p>
             </div>
-            <div className="rounded-xl bg-white/5 border border-white/10 p-4 sm:col-span-2 lg:col-span-1">
+            <div className="h-full rounded-xl bg-white/5 border border-white/10 p-4 sm:col-span-2 lg:col-span-1">
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'Gains / Pertes' : 'Wins / Losses'}</p>
               <p className="text-xl sm:text-2xl font-bold">
                 <span className="text-emerald-400">{globalStats.totalWins}</span>
@@ -101,15 +101,15 @@ export function DataVisualizations({ language }: DataVisualizationsProps) {
                 <span className="text-red-400">{globalStats.totalLosses}</span>
               </p>
             </div>
-            <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+            <div className="h-full rounded-xl bg-white/5 border border-white/10 p-4">
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'Enjeu total' : 'Total stake'}</p>
               <p className="text-lg sm:text-xl font-bold text-white">{globalStats.totalStake.toFixed(0)} CHF</p>
             </div>
-            <div className="rounded-xl bg-white/5 border border-white/10 p-4">
+            <div className="h-full rounded-xl bg-white/5 border border-white/10 p-4">
               <p className="text-xs sm:text-sm text-white/60 mb-1">{language === 'fr' ? 'Gains totaux' : 'Total winnings'}</p>
               <p className="text-lg sm:text-xl font-bold text-white">{globalStats.totalWinnings.toFixed(0)} CHF</p>
             </div>
-            <div className="rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/30 p-4">
+            <div className="h-full rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-500/30 p-4">
               <p className="text-xs sm:text-sm text-red-300/80 mb-1">{language === 'fr' ? 'Perte nette' : 'Net loss'}</p>
               <p className="text-lg sm:text-xl font-bold text-red-400">-{globalStats.netLoss.toFixed(0)} CHF</p>
             </div>

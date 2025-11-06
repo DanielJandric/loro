@@ -93,20 +93,20 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mt-4 sm:mt-6">
-          <div className="text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+        <div className="grid grid-cols-1 items-stretch gap-3 sm:grid-cols-3 sm:gap-4 lg:gap-6 mt-4 sm:mt-6">
+          <div className="h-full text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-400 mb-1">p &lt; 0.01</p>
             <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'Certitude > 99%' : 'Certainty > 99%'}
             </p>
           </div>
-          <div className="text-center p-3 sm:p-4 rounded-xl bg-orange-600/20 border border-orange-500/50">
+          <div className="h-full text-center p-3 sm:p-4 rounded-xl bg-orange-600/20 border border-orange-500/50">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-orange-400 mb-1">-30%</p>
             <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'Chute après gain' : 'Drop after win'}
             </p>
           </div>
-          <div className="text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+          <div className="h-full text-center p-3 sm:p-4 rounded-xl bg-red-600/20 border border-red-500/50">
             <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-red-400 mb-1">66%</p>
             <p className="text-xs sm:text-sm lg:text-base text-white">
               {language === 'fr' ? 'RTP (vs 90-95%)' : 'RTP (vs 90-95%)'}
@@ -190,8 +190,8 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           </p>
         </div>
         
-        <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
-          <div className="rounded-xl bg-black/30 p-3 sm:p-4">
+        <div className="grid items-stretch gap-3 sm:gap-4 md:grid-cols-2">
+          <div className="h-full rounded-xl bg-black/30 p-3 sm:p-4">
             <p className="text-sm font-bold text-red-400 mb-2">
               {language === 'fr' ? '❌ RÉSULTAT ANORMAL' : '❌ ABNORMAL RESULT'}
             </p>
@@ -207,7 +207,7 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
             </div>
           </div>
           
-          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-orange-600/30 p-3 sm:p-4 border border-red-500/50">
+          <div className="h-full rounded-xl bg-gradient-to-br from-red-600/30 to-orange-600/30 p-3 sm:p-4 border border-red-500/50">
             <p className="text-sm font-bold text-white mb-1">
               {language === 'fr' ? '⚠️ NIVEAU DE PREUVE' : '⚠️ PROOF LEVEL'}
             </p>
@@ -261,8 +261,8 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
         </div>
 
         {/* Visualisation claire des probabilités */}
-        <div className="grid gap-6 md:grid-cols-2 mb-6">
-          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-red-700/30 p-6 border border-red-500/50">
+        <div className="grid items-stretch gap-6 md:grid-cols-2 mb-6">
+          <div className="h-full rounded-xl bg-gradient-to-br from-red-600/30 to-red-700/30 p-6 border border-red-500/50">
             <p className="text-lg font-bold text-white mb-4">
               {language === 'fr' ? '😢 APRÈS UN GAIN' : '😢 AFTER A WIN'}
             </p>
@@ -279,7 +279,7 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
             </div>
           </div>
 
-          <div className="rounded-xl bg-gradient-to-br from-green-600/30 to-green-700/30 p-6 border border-green-500/50">
+          <div className="h-full rounded-xl bg-gradient-to-br from-green-600/30 to-green-700/30 p-6 border border-green-500/50">
             <p className="text-lg font-bold text-white mb-4">
               {language === 'fr' ? '😊 APRÈS UNE PERTE' : '😊 AFTER A LOSS'}
             </p>
@@ -342,16 +342,16 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           {language === 'fr' ? 'Analyse des séries (Streaks)' : 'Streak Analysis'}
         </h3>
         
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-lg bg-black/20 p-4">
+        <div className="grid items-stretch gap-4 md:grid-cols-3">
+          <div className="h-full rounded-lg bg-black/20 p-4">
             <p className="text-sm text-white/60">{language === 'fr' ? 'Plus longue série de gains' : 'Longest win streak'}</p>
             <p className="text-2xl font-bold text-green-400">{streaks.maxWinStreak}</p>
           </div>
-          <div className="rounded-lg bg-black/20 p-4">
+          <div className="h-full rounded-lg bg-black/20 p-4">
             <p className="text-sm text-white/60">{language === 'fr' ? 'Plus longue série de pertes' : 'Longest loss streak'}</p>
             <p className="text-2xl font-bold text-red-400">{streaks.maxLossStreak}</p>
           </div>
-          <div className="rounded-lg bg-black/20 p-4">
+          <div className="h-full rounded-lg bg-black/20 p-4">
             <p className="text-sm text-white/60">{language === 'fr' ? 'Gains consécutifs (WW)' : 'Consecutive wins (WW)'}</p>
             <p className="text-2xl font-bold text-white">{streaks.consecutiveWins}</p>
             <p className="text-xs text-white/60">
@@ -367,15 +367,15 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
           {language === 'fr' ? 'Mesure d\'entropie' : 'Entropy Measure'}
         </h3>
         
-        <div className="grid gap-4 md:grid-cols-2">
-          <div>
+        <div className="grid items-stretch gap-4 md:grid-cols-2">
+          <div className="h-full">
             <p className="text-sm text-white/60">{language === 'fr' ? 'Entropie de Shannon' : 'Shannon Entropy'}</p>
             <p className="text-2xl font-bold text-green-400">{entropy.entropy.toFixed(4)} bits</p>
             <p className="text-sm text-white/60 mt-1">
               {language === 'fr' ? 'Maximum théorique: 1.0 bits' : 'Theoretical maximum: 1.0 bits'}
             </p>
           </div>
-          <div>
+          <div className="h-full">
             <p className="text-sm text-white/60">{language === 'fr' ? 'Ratio d\'entropie' : 'Entropy Ratio'}</p>
             <p className="text-2xl font-bold text-white">{(entropy.entropyRatio * 100).toFixed(2)}%</p>
             <p className="text-sm text-white/60 mt-1">

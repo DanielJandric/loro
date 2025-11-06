@@ -194,8 +194,8 @@ export function TestCard({
   };
 
   return (
-    <article className={`group relative overflow-hidden rounded-2xl border backdrop-blur-sm transition-all hover:scale-[1.02] ${getStatusStyles()}`}>
-      <div className="p-6">
+    <article className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border backdrop-blur-sm transition-all hover:scale-[1.02] ${getStatusStyles()}`}>
+      <div className="p-6 flex-1">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
             <div className="flex items-center gap-3">

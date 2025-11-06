@@ -205,9 +205,9 @@ export function FullClientPage() {
               <span>→</span>
             </Link>
           </div>
-          <div className="grid gap-6 rounded-3xl glass p-8 shadow-2xl lg:grid-cols-4">
+          <div className="grid items-stretch gap-6 rounded-3xl glass p-8 shadow-2xl lg:grid-cols-4">
             {heroStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col gap-2 card-hover rounded-2xl bg-white/5 p-4 backdrop-blur">
+              <div key={stat.label} className="flex h-full flex-col gap-2 card-hover rounded-2xl bg-white/5 p-4 backdrop-blur">
                 <span className="text-4xl font-black tracking-tight lg:text-5xl">
                   {stat.value}
                 </span>
@@ -236,9 +236,9 @@ export function FullClientPage() {
             <p className="mt-8 rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-br from-red-600/20 to-yellow-600/20 p-8 text-lg font-medium leading-relaxed text-white backdrop-blur-sm shadow-xl ring-2 ring-inset ring-yellow-400/10">
               <strong className="text-xl">{trans.sections.conclusion}</strong> {trans.sections.conclusionText}
             </p>
-            <ul className="mt-10 grid gap-6 text-base leading-relaxed sm:grid-cols-2">
+            <ul className="mt-10 grid items-stretch gap-6 text-base leading-relaxed sm:grid-cols-2">
               {tlDrHighlights[language].map((item) => (
-                <li key={item} className="card-hover rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:bg-white/20">
+                <li key={item} className="h-full card-hover rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:bg-white/20">
                   <span className="font-medium text-white/90">{item}</span>
                 </li>
               ))}
