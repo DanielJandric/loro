@@ -286,62 +286,65 @@ export default function Home() {
         </div>
       </header>
 
-      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-20 lg:px-8 lg:py-32" role="main">
-        <section className="animate-fade-up rounded-3xl bg-white px-10 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/50">
+      <main id="main" className="relative" role="main">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-red-50/20 to-slate-900/10" />
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-20 lg:px-8 lg:py-32">
+        <section className="animate-fade-up overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 px-10 py-16 text-white shadow-2xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="text-gradient">📌 L'essentiel en 30 secondes</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-red-400 bg-clip-text text-transparent">📌 L'essentiel en 30 secondes</span>
           </h2>
-          <div className="mt-4 text-slate-700">
+          <div className="mt-4 text-white/90">
             <p>
               Cette analyse indépendante met en évidence une dépendance temporelle du
               système d&apos;e-billets. Trois tests convergents (p &lt; 0.01)
               rejettent l&apos;hypothèse d&apos;aléatoire.
             </p>
           </div>
-          <p className="mt-8 rounded-3xl border-2 border-red-300 bg-gradient-to-br from-red-50 to-red-100 p-8 text-lg font-medium leading-relaxed text-red-900 shadow-xl">
+          <p className="mt-8 rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-br from-red-600/20 to-yellow-600/20 p-8 text-lg font-medium leading-relaxed text-white backdrop-blur-sm shadow-xl ring-2 ring-inset ring-yellow-400/10">
             <strong className="text-xl">⚠️ Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
           </p>
           <ul className="mt-10 grid gap-6 text-base leading-relaxed sm:grid-cols-2">
             {tlDrHighlights.map((item, index) => (
-              <li key={item} className="card-hover flex gap-4 rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-lg">
+              <li key={item} className="card-hover flex gap-4 rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:bg-white/20">
                 <span className="mt-1 text-2xl">
                   {index === 0 ? "🔍" : index === 1 ? "📉" : index === 2 ? "📊" : "⚖️"}
                 </span>
-                <span className="font-medium">{item}</span>
+                <span className="font-medium text-white/90">{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-12 overflow-hidden rounded-3xl border-2 border-slate-200 shadow-2xl">
-            <table className="min-w-full bg-white text-left text-sm">
-              <thead className="bg-gradient-to-r from-slate-900 to-slate-800 text-slate-100">
+          <div className="mt-12 overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
+            <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
+              <thead className="bg-gradient-to-r from-red-900 to-red-800 text-white">
                 <tr>
-                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-slate-200">
+                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-white/80">
                     Situation
                   </th>
-                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-slate-200">
+                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-white/80">
                     Jeu normal
                   </th>
-                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-slate-200">
+                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-white/80">
                     Observé Loro
                   </th>
-                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-slate-200">
+                  <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-white/80">
                     Écart
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {comparisonRows.map((row) => (
-                  <tr key={row.situation} className="text-sm text-slate-600">
-                    <td className="px-6 py-4 font-medium text-slate-900">{row.situation}</td>
-                    <td className="px-6 py-4 font-semibold text-emerald-600">{row.expected}</td>
+                  <tr key={row.situation} className="text-sm text-white/80 transition-colors hover:bg-white/5">
+                    <td className="px-6 py-4 font-medium text-white">{row.situation}</td>
+                    <td className="px-6 py-4 font-semibold text-emerald-400">{row.expected}</td>
                     <td
                       className={`px-6 py-4 font-semibold ${
                         row.tone === "negative"
-                          ? "text-red-600"
+                          ? "text-red-400"
                           : row.tone === "positive"
-                          ? "text-emerald-600"
-                          : "text-slate-600"
+                          ? "text-emerald-400"
+                          : "text-white/60"
                       }`}
                     >
                       {row.observed}
@@ -349,10 +352,10 @@ export default function Home() {
                     <td
                       className={`px-6 py-4 font-semibold ${
                         row.tone === "negative"
-                          ? "text-red-600"
+                          ? "text-red-400"
                           : row.tone === "positive"
-                          ? "text-emerald-600"
-                          : "text-slate-500"
+                          ? "text-emerald-400"
+                          : "text-white/50"
                       }`}
                     >
                       {row.delta}
@@ -364,23 +367,23 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="animate-fade-up rounded-3xl bg-gradient-to-br from-white to-slate-50 px-10 py-16 shadow-2xl shadow-slate-900/10">
+        <section className="animate-fade-up overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 px-10 py-16 text-white shadow-2xl">
           <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr]">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                <span className="text-gradient">🎲 Comprendre sans être statisticien</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">🎲 Comprendre sans être statisticien</span>
               </h2>
-              <p className="text-base leading-relaxed text-slate-600">
+              <p className="text-base leading-relaxed text-white/90">
                 Dans un jeu équitable, la pièce n'a pas de mémoire : la probabilité de gagner reste stable (32.69%). Ici, la probabilité s'effondre après un gain — comme si le système se souvenait du résultat précédent pour vous défavoriser.
               </p>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600">
-                <p className="font-semibold text-slate-900">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-6 text-sm text-white/80 backdrop-blur-sm">
+                <p className="font-semibold text-white">
                   Visualisation des 100 premiers tirages
                 </p>
-                <p className="mt-1 text-xs text-slate-500">
-                  <span className="font-semibold text-emerald-600">W</span> = gain &nbsp;|&nbsp;
-                  <span className="font-semibold text-red-600">L</span> = perte
+                <p className="mt-1 text-xs text-white/60">
+                  <span className="font-semibold text-emerald-400">W</span> = gain &nbsp;|&nbsp;
+                  <span className="font-semibold text-red-400">L</span> = perte
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {visualSequence.map((value, index) => (
@@ -388,37 +391,37 @@ export default function Home() {
                       key={`${value}-${index}`}
                       className={`flex h-8 w-8 items-center justify-center rounded-md text-xs font-semibold ${
                         value === "W"
-                          ? "bg-emerald-500/10 text-emerald-700 ring-1 ring-inset ring-emerald-400/40"
-                          : "bg-red-500/10 text-red-700 ring-1 ring-inset ring-red-400/40"
+                          ? "bg-emerald-500/20 text-emerald-400 ring-1 ring-inset ring-emerald-400/40"
+                          : "bg-red-500/20 text-red-400 ring-1 ring-inset ring-red-400/40"
                       }`}
                     >
                       {value}
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 text-sm font-medium text-slate-700">
+                <p className="mt-4 text-sm font-medium text-white/80">
                   Deux gains consécutifs (« WW ») n'apparaissent que 23 fois sur 309 tirages (7.5%) — bien en dessous des 10.7% attendus dans un système aléatoire.
                 </p>
               </div>
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <div className="rounded-2xl border border-white/20 bg-white/10 p-6 shadow-sm backdrop-blur-sm">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60">
                   Probabilités conditionnelles
                 </h3>
-                <div className="mt-4 space-y-3 text-sm text-slate-600">
+                <div className="mt-4 space-y-3 text-sm text-white/70">
                   <p>
-                    <span className="font-semibold text-slate-900">P(Win | Win)</span> = 22.77%
+                    <span className="font-semibold text-white">P(Win | Win)</span> = 22.77%
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">P(Win | Loss)</span> = 37.68%
+                    <span className="font-semibold text-white">P(Win | Loss)</span> = 37.68%
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">Écart absolu</span> = 14.91 points
+                    <span className="font-semibold text-white">Écart absolu</span> = 14.91 points
                   </p>
                 </div>
-                <p className="mt-4 rounded-xl border border-red-200 bg-red-50/80 p-4 text-sm text-red-900">
+                <p className="mt-4 rounded-xl border border-red-400/30 bg-red-500/20 p-4 text-sm text-white backdrop-blur-sm">
                   Après un gain, la probabilité de gagner à nouveau chute de 30%. Ce schéma n'existe pas dans un générateur aléatoire certifié.
                 </p>
               </div>
@@ -426,19 +429,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
+        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 px-8 py-12 text-white shadow-xl">
           <div className="space-y-10">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-2xl space-y-4">
                 <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  🔬 Protocoles et preuves scientifiques
+                  <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">🔬 Protocoles et preuves scientifiques</span>
                 </h2>
-                <p className="text-base leading-relaxed text-slate-600">
+                <p className="text-base leading-relaxed text-white/90">
                   309 tirages consécutifs ont été analysés via trois tests statistiques complémentaires conformément aux standards académiques. Tous rejettent l'hypothèse d'aléatoire.
                 </p>
               </div>
-              <div className="rounded-2xl border border-sky-200 bg-sky-50/60 p-6 text-sm text-slate-600">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              <div className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 p-6 text-sm text-white/80 backdrop-blur-sm">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
                   Dataset synthétique
                 </h3>
                 <ul className="mt-3 space-y-2">
@@ -453,42 +456,42 @@ export default function Home() {
               {tests.map((test) => (
                 <article
                   key={test.title}
-                  className="flex h-full flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50/70 p-6"
+                  className="flex h-full flex-col gap-5 rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm"
                 >
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">
+                    <h3 className="text-lg font-semibold text-white">
                       {test.title}
                     </h3>
-                    <p className="mt-2 text-sm text-slate-600">{test.summary}</p>
+                    <p className="mt-2 text-sm text-white/80">{test.summary}</p>
                   </div>
                   <pre className="flex-1 rounded-xl bg-slate-900 p-4 text-xs leading-relaxed text-slate-100 shadow-inner">
 {test.block}
                   </pre>
-                  <p className="rounded-xl border border-red-200 bg-white p-4 text-sm text-red-700">
+                  <p className="rounded-xl border border-red-400/30 bg-red-500/20 p-4 text-sm text-white backdrop-blur-sm">
                     {test.conclusion}
                   </p>
                 </article>
               ))}
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-slate-50/80 p-8">
-              <h3 className="text-xl font-semibold text-slate-900">Entropie et incertitude</h3>
+            <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
+              <h3 className="text-xl font-semibold text-white">Entropie et incertitude</h3>
               <div className="mt-4 grid gap-6 lg:grid-cols-2">
-                <div className="space-y-2 text-sm text-slate-600">
+                <div className="space-y-2 text-sm text-white/80">
                   <p>
-                    <span className="font-semibold text-slate-900">Entropie binaire H(X)</span> = 0.9117 bits (max 1.0)
+                    <span className="font-semibold text-white">Entropie binaire H(X)</span> = 0.9117 bits (max 1.0)
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">Ratio H/Hmax</span> = 91.17%
+                    <span className="font-semibold text-white">Ratio H/Hmax</span> = 91.17%
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">Entropie conditionnelle H(Xₜ | Xₜ₋₁)</span> = 1.809 bits (max 2.0)
+                    <span className="font-semibold text-white">Entropie conditionnelle H(Xₜ | Xₜ₋₁)</span> = 1.809 bits (max 2.0)
                   </p>
                   <p>
-                    <span className="font-semibold text-slate-900">Ratio conditionnel</span> = 90.45%
+                    <span className="font-semibold text-white">Ratio conditionnel</span> = 90.45%
                   </p>
                 </div>
-                <p className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
+                <p className="rounded-2xl border border-white/20 bg-white/10 p-6 text-sm text-white/80 backdrop-blur-sm">
                   L'entropie réduite confirme la présence d'une structure. Avec une indépendance parfaite, ces ratios se rapprocheraient de 100%.
                 </p>
               </div>
@@ -496,42 +499,42 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
+        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 px-8 py-12 text-white shadow-xl">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            💰 Impact financier et RTP
+            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">💰 Impact financier et RTP</span>
           </h2>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200">
-            <table className="min-w-full bg-white text-left text-sm">
-              <thead className="bg-slate-900 text-slate-100">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-white/20">
+            <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
+              <thead className="bg-gradient-to-r from-orange-900 to-red-900 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Métrique
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Observé
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Standard
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Écart
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {financialRows.map((row) => (
-                  <tr key={row.metric} className="text-sm text-slate-600">
-                    <td className="px-6 py-4 font-medium text-slate-900">{row.metric}</td>
-                    <td className="px-6 py-4 font-semibold text-slate-900">{row.observed}</td>
-                    <td className="px-6 py-4 text-slate-500">{row.benchmark}</td>
+                  <tr key={row.metric} className="text-sm text-white/80 transition-colors hover:bg-white/5">
+                    <td className="px-6 py-4 font-medium text-white">{row.metric}</td>
+                    <td className="px-6 py-4 font-semibold text-white">{row.observed}</td>
+                    <td className="px-6 py-4 text-white/60">{row.benchmark}</td>
                     <td
                       className={`px-6 py-4 font-semibold ${
                         row.tone === "negative"
-                          ? "text-red-600"
+                          ? "text-red-400"
                           : row.tone === "positive"
-                          ? "text-emerald-600"
-                          : "text-slate-500"
+                          ? "text-emerald-400"
+                          : "text-white/50"
                       }`}
                     >
                       {row.delta}
@@ -542,36 +545,36 @@ export default function Home() {
             </table>
           </div>
 
-          <h3 className="mt-12 text-xl font-semibold text-slate-900">RTP par jeu (≥ 10 tirages)</h3>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
-            <table className="min-w-full bg-white text-left text-sm">
-              <thead className="bg-slate-900 text-slate-100">
+          <h3 className="mt-12 text-xl font-semibold text-white">RTP par jeu (≥ 10 tirages)</h3>
+          <div className="mt-4 overflow-hidden rounded-2xl border border-white/20">
+            <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
+              <thead className="bg-gradient-to-r from-pink-900 to-purple-900 text-white">
                 <tr>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Jeu
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     n
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     RTP
                   </th>
-                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-slate-200">
+                  <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                     Win rate
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-white/10">
                 {rtpByGame.map((row) => (
-                  <tr key={row.game} className="text-sm text-slate-600">
-                    <td className="px-6 py-4 font-medium text-slate-900">{row.game}</td>
+                  <tr key={row.game} className="text-sm text-white/80 transition-colors hover:bg-white/5">
+                    <td className="px-6 py-4 font-medium text-white">{row.game}</td>
                     <td className="px-6 py-4">{row.n}</td>
                     <td
                       className={`px-6 py-4 font-semibold ${
                         row.tone === "negative"
-                          ? "text-red-600"
+                          ? "text-red-400"
                           : row.tone === "positive"
-                          ? "text-emerald-600"
+                          ? "text-emerald-400"
                           : "text-slate-700"
                       }`}
                     >
@@ -584,38 +587,38 @@ export default function Home() {
             </table>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50/70 p-6 text-sm text-amber-900">
+          <div className="mt-8 rounded-2xl border border-amber-400/30 bg-amber-500/20 p-6 text-sm text-white backdrop-blur-sm">
             <strong>Projection collective :</strong> si 1 000 joueurs subissent une perte moyenne de 1 000 CHF, le préjudice cumulé atteint 1 million CHF. Une investigation Gespa est nécessaire pour confirmer et quantifier l'exposition réelle.
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
+        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 px-8 py-12 text-white shadow-xl">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            ⚖️ Cadre légal suisse
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">⚖️ Cadre légal suisse</span>
           </h2>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             {legalArticles.map((article) => (
               <article
                 key={article.title}
-                className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50/70 p-6"
+                className="flex h-full flex-col gap-4 rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm"
               >
                 <div>
-                  <h3 className="text-base font-semibold text-slate-900">
+                  <h3 className="text-base font-semibold text-white">
                     {article.title}
                   </h3>
-                  <p className="mt-2 text-sm italic text-slate-600">“{article.excerpt}”</p>
+                  <p className="mt-2 text-sm italic text-white/70">"{article.excerpt}"</p>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-700">{article.finding}</p>
+                <p className="text-sm leading-relaxed text-white/80">{article.finding}</p>
               </article>
             ))}
           </div>
 
-          <div className="mt-10 space-y-5 rounded-2xl border border-red-200 bg-white p-6 text-sm text-red-900">
+          <div className="mt-10 space-y-5 rounded-2xl border border-red-400/30 bg-red-500/20 p-6 text-sm text-white backdrop-blur-sm">
             <p>
               <strong>Réponse de la Loterie Romande :</strong> « Les jeux font l'objet d'audits approfondis. Pour des raisons de confidentialité, les documents techniques ne peuvent être transmis. »
             </p>
-            <ul className="space-y-3 text-slate-600">
+            <ul className="space-y-3 text-white/80">
               {responseConcerns.map((item) => (
                 <li key={item} className="flex gap-2">
                   <span className="text-red-500">•</span>
@@ -731,6 +734,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       <footer className="border-t border-slate-200 bg-white/90 py-10">
