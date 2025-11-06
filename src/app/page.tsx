@@ -655,8 +655,6 @@ export default function Home() {
               <div className="rounded-2xl border border-white/15 bg-slate-950/40 p-6 text-sm text-white/75">
                 <p className="font-semibold text-white">Actions recommandées</p>
                 <ul className="mt-3 space-y-2">
-                  <li>Demander un remboursement (art. 97 CO).</li>
-                  <li>Saisir Gespa et signaler à la COMLOT.</li>
                   <li>Consulter un avocat spécialisé.</li>
                   <li>Étudier une action collective.</li>
                 </ul>
