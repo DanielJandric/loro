@@ -689,6 +689,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
         </section>
 
         <section id="contact" className="bg-gradient-to-br from-zinc-900 via-neutral-900 to-stone-900 text-white">
