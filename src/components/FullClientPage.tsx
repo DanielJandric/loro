@@ -108,14 +108,69 @@ export function FullClientPage() {
   ];
 
   const rtpByGame = [
-    { game: "Bingo", n: 33, rtp: "81.06%", winRate: "45.45%", tone: "positive" },
-    { game: "Cash", n: 18, rtp: "79.44%", winRate: "44.44%", tone: "positive" },
-    { game: "Magic", n: 28, rtp: "73.93%", winRate: "42.86%", tone: "neutral" },
-    { game: "Subito", n: 21, rtp: "71.43%", winRate: "23.81%", tone: "neutral" },
-    { game: "Saphir", n: 15, rtp: "68.00%", winRate: "33.33%", tone: "neutral" },
-    { game: "Crésus", n: 34, rtp: "65.00%", winRate: "29.41%", tone: "negative" },
-    { game: "Banco", n: 23, rtp: "63.48%", winRate: "30.43%", tone: "negative" },
-    { game: "Rêve", n: 11, rtp: "59.09%", winRate: "36.36%", tone: "negative" },
+    { 
+      game: language === 'fr' ? "Le Trésor des pyramides" : "Pyramid Treasure", 
+      n: 61, 
+      bet: "427 CHF", 
+      won: "392 CHF", 
+      rtp: "91.80%", 
+      winRate: "34.43%", 
+      tone: "positive" 
+    },
+    { 
+      game: language === 'fr' ? "Black Jack" : "Black Jack", 
+      n: 18, 
+      bet: "72 CHF", 
+      won: "52 CHF", 
+      rtp: "72.22%", 
+      winRate: "50.00%", 
+      tone: "neutral" 
+    },
+    { 
+      game: language === 'fr' ? "Trésor des Pirates" : "Pirate Treasure", 
+      n: 141, 
+      bet: "2115 CHF", 
+      won: "1405 CHF", 
+      rtp: "66.43%", 
+      winRate: "32.62%", 
+      tone: "neutral" 
+    },
+    { 
+      game: "Tribolo", 
+      n: 44, 
+      bet: "88 CHF", 
+      won: "58 CHF", 
+      rtp: "65.91%", 
+      winRate: "31.82%", 
+      tone: "negative" 
+    },
+    { 
+      game: "Carton", 
+      n: 7, 
+      bet: "140 CHF", 
+      won: "60 CHF", 
+      rtp: "42.86%", 
+      winRate: "42.86%", 
+      tone: "negative" 
+    },
+    { 
+      game: "e-Rento", 
+      n: 28, 
+      bet: "224 CHF", 
+      won: "74 CHF", 
+      rtp: "33.04%", 
+      winRate: "21.43%", 
+      tone: "negative" 
+    },
+    { 
+      game: language === 'fr' ? "Autres" : "Others", 
+      n: 10, 
+      bet: "76 CHF", 
+      won: "37 CHF", 
+      rtp: "—", 
+      winRate: "—", 
+      tone: "neutral" 
+    },
   ];
 
   return (
@@ -436,7 +491,13 @@ export function FullClientPage() {
                       {trans.tables.game}
                     </th>
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
-                      n
+                      {language === 'fr' ? 'Billets' : 'Tickets'}
+                    </th>
+                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
+                      {language === 'fr' ? 'Enjeu' : 'Stake'}
+                    </th>
+                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
+                      {language === 'fr' ? 'Gains' : 'Winnings'}
                     </th>
                     <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wide text-white/80">
                       {trans.tables.rtp}
@@ -450,9 +511,11 @@ export function FullClientPage() {
                   {rtpByGame.map((row) => (
                     <tr key={row.game} className="text-sm text-white/80 transition-colors hover:bg-white/5">
                       <td className="px-6 py-4 font-medium text-white">{row.game}</td>
-                      <td className="px-6 py-4">{row.n}</td>
+                      <td className="px-6 py-4 text-center">{row.n}</td>
+                      <td className="px-6 py-4 text-right">{row.bet}</td>
+                      <td className="px-6 py-4 text-right">{row.won}</td>
                       <td
-                        className={`px-6 py-4 font-semibold ${
+                        className={`px-6 py-4 text-center font-semibold ${
                           row.tone === "negative"
                             ? "text-red-400"
                             : row.tone === "positive"
@@ -462,7 +525,7 @@ export function FullClientPage() {
                       >
                         {row.rtp}
                       </td>
-                      <td className="px-6 py-4">{row.winRate}</td>
+                      <td className="px-6 py-4 text-center">{row.winRate}</td>
                     </tr>
                   ))}
                 </tbody>
