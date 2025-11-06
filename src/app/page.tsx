@@ -753,6 +753,32 @@ export default function Home() {
             Analyse informative – ne constitue pas un conseil juridique ou financier.
           </p>
         </div>
+        <div className="mx-auto mt-6 w-full max-w-6xl px-6 lg:px-8">
+          <div className="text-[10px] leading-relaxed text-slate-500/70">
+            <p className="tracking-wide text-slate-500/80">AVIS JURIDIQUE ET RÉSERVES</p>
+            <p className="mt-2">Toutes réserves usuelles demeurent expressément formulées.</p>
+            <p className="mt-2">
+              Le présent site est publié à titre purement informatif et documentaire. Les analyses statistiques présentées constituent des observations factuelles basées sur des données publiquement accessibles.
+            </p>
+            <p className="mt-2">L'auteur se réserve expressément le droit de :</p>
+            <ul className="mt-1 list-disc pl-5">
+              <li>Modifier, compléter ou supprimer tout contenu sans préavis</li>
+              <li>Entreprendre toute action judiciaire ou extrajudiciaire jugée appropriée</li>
+              <li>Transmettre les présentes informations aux autorités compétentes</li>
+              <li>Exercer tous droits et recours prévus par le droit suisse</li>
+            </ul>
+            <p className="mt-2">
+              Sans reconnaissance préjudiciable : La publication de ces informations ne constitue en aucun cas une renonciation à quelque droit que ce soit, ni une reconnaissance de responsabilité.
+            </p>
+            <p className="mt-2">
+              Sous réserve de tous droits : Notamment mais non limitativement les droits découlant du CO, de la LCD, de la LPD, de la LJAr et de toute autre disposition légale applicable.
+            </p>
+            <p className="mt-2">
+              Toute utilisation malveillante ou déformation des informations présentées engagera la responsabilité civile et pénale de son auteur.
+            </p>
+            <p className="mt-2">For juridique : Lausanne, Suisse | Droit applicable : Droit suisse</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
