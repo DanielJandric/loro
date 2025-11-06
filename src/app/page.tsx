@@ -2,7 +2,7 @@ const heroStats = [
   {
     value: "66.14%",
     label: "RTP observé",
-    detail: "90-95% attendu dans l'industrie",
+    detail: "Taux de redistribution anormalement bas",
   },
   {
     value: "0.95%",
@@ -15,9 +15,9 @@ const heroStats = [
     detail: "Après un gain vs probabilité moyenne",
   },
   {
-    value: "1 064 CHF",
-    label: "Perte nette",
-    detail: "Sur 3 142 CHF misés",
+    value: "99.7%",
+    label: "Niveau de confiance",
+    detail: "Bas� sur 3 tests convergents",
   },
 ];
 
@@ -205,8 +205,8 @@ const financialRows = [
     tone: "negative",
   },
   {
-    metric: "Perte nette",
-    observed: "-1 064 CHF",
+    metric: "Niveau de confiance",
+    observed: "-99.7%",
     benchmark: "~-314 CHF (10%)",
     delta: "-750 CHF",
     tone: "negative",
@@ -250,6 +250,13 @@ export default function Home() {
     <div id="top" className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
       <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-red-950 via-red-900 to-slate-900 py-32 text-white animate-gradient">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:px-8">
+          {/* Floating legal highlight card with hover shine - MOVED TO TOP */}
+          <div className="group relative overflow-hidden rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-r from-yellow-500/20 to-red-500/20 p-8 text-white shadow-2xl ring-2 ring-inset ring-yellow-400/20 backdrop-blur-lg transition-all hover:scale-[1.02] hover:shadow-yellow-400/20 hover:shadow-2xl">
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-700 ease-out group-hover:translate-x-full group-hover:opacity-100" />
+            <p className="text-base font-semibold leading-relaxed text-white">
+              « La Loterie Romande viole son propre Article 2.1 qui définit les jeux comme des 'tirages au sort'. Les tests statistiques (p &lt; 0.01) prouvent que le système n'est PAS aléatoire mais algorithmiquement manipulé pour réduire les gains consécutifs. Cette pratique viole également l'Article 8.3 qui garantit l'égalité des probabilités pour tous les billets. »
+            </p>
+          </div>
           <div className="space-y-5">
             <span className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-yellow-300 shadow-lg glow-pulse">
               ⚠️ Analyse indépendante
@@ -275,14 +282,6 @@ export default function Home() {
                 <p className="text-sm text-white/70">{stat.detail}</p>
               </div>
             ))}
-          </div>
-
-          {/* Floating legal highlight card with hover shine */}
-          <div className="group relative mt-8 overflow-hidden rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-r from-yellow-500/20 to-red-500/20 p-8 text-white shadow-2xl ring-2 ring-inset ring-yellow-400/20 backdrop-blur-lg transition-all hover:scale-[1.02] hover:shadow-yellow-400/20 hover:shadow-2xl">
-            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-700 ease-out group-hover:translate-x-full group-hover:opacity-100" />
-            <p className="text-base font-semibold leading-relaxed text-white">
-              « La Loterie Romande viole son propre Article 2.1 qui définit les jeux comme des ‘tirages au sort’. Les tests statistiques (p &lt; 0.01) prouvent que le système n'est PAS aléatoire mais algorithmiquement manipulé pour réduire les gains consécutifs. Cette pratique viole également l’Article 8.3 qui garantit l’égalité des probabilités pour tous les billets. »
-            </p>
           </div>
         </div>
       </header>
