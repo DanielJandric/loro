@@ -691,39 +691,40 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
+        <section id="contact" className="bg-gradient-to-br from-zinc-900 via-neutral-900 to-stone-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                📬 Contact
+                Contact
               </h2>
-              <p className="text-base leading-relaxed text-slate-600">
+              <p className="text-base leading-relaxed text-white/90">
                 Questions, audit indépendant ou accès au dataset complet : contactez-nous. Les données sont anonymisées et disponibles pour toute revue experte.
               </p>
-              <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm text-slate-600">
+              <div className="space-y-3 rounded-2xl border border-white/20 bg-white/10 p-6 text-sm text-white/80 backdrop-blur-sm">
                 <p>
-                  <span className="font-semibold text-slate-900">Email :</span>{" "}
+                  <span className="font-semibold text-white">Email :</span>{" "}
                   <a
                     href="mailto:contact@exemple.ch"
-                    className="text-slate-900 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-600"
+                    className="text-white underline decoration-white/30 underline-offset-4 transition hover:text-white/70"
                   >
                     contact@exemple.ch
                   </a>
                 </p>
                 <p>
-                  <span className="font-semibold text-slate-900">Dataset :</span> CSV anonymisé sur demande
+                  <span className="font-semibold text-white">Dataset :</span> CSV anonymisé sur demande
                 </p>
                 <p>
-                  <span className="font-semibold text-slate-900">PGP :</span> clé disponible pour échanges sécurisés
+                  <span className="font-semibold text-white">PGP :</span> clé disponible pour échanges sécurisés
                 </p>
               </div>
             </div>
-            <div className="rounded-3xl border border-amber-200 bg-amber-50/70 p-8 text-sm text-amber-900">
-              <h3 className="text-base font-semibold text-amber-900">Note juridique</h3>
+            <div className="rounded-3xl border border-amber-400/30 bg-amber-500/20 p-8 text-sm text-white backdrop-blur-sm">
+              <h3 className="text-base font-semibold text-white">Note juridique</h3>
               <p className="mt-3 leading-relaxed">
                 Cette analyse présente des faits statistiques vérifiables. Elle n'accuse pas la Loterie Romande de fraude intentionnelle mais documente des écarts significatifs qui requièrent des clarifications formelles par les autorités compétentes (Gespa).
               </p>
-              <p className="mt-4 text-sm text-amber-800">
+              <p className="mt-4 text-sm text-white/80">
                 Contacts utiles :
                 <br />
                 <a className="underline" href="https://www.gespa.ch" target="_blank" rel="noreferrer">
@@ -739,6 +740,7 @@ export default function Home() {
                 </a>
               </p>
             </div>
+          </div>
           </div>
           </div>
         </section>
