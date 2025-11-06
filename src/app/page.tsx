@@ -162,7 +162,7 @@ const tests = [
       "Wins : 101, Losses : 208. Runs observés R = 157 vs μ = 136.97 (σ = 7.72) ⇒ z = 2.594, p = 0.0095.",
     conclusion:
       "Rejet de l'hypothèse d'indépendance (p < 0.01). Trop d'alternances, typiques d'un algorithme de balancement RTP.",
-    block: `H₀ : séquence i.i.d.\nH₁ : structure non-aléatoire\n\n• Runs observés : 157\n• Runs attendus : 136.97\n• z-score : 2.594\n• p-value : 0.0095`,
+    block: `H₀ : séquence i.i.d.\nH₁ : structure non-aléatoire\n\n— Runs observés : 157\n— Runs attendus : 136.97\n— z-score : 2.594\n— p-value : 0.0095`,
   },
   {
     title: "Test 2 · χ² d'indépendance (chaîne de Markov)",
@@ -178,7 +178,7 @@ const tests = [
       "Statistique |P(W|W) - P(W|L)| = 0.1491. Percentile 99 = 0.1455. p empirique = 0.0085.",
     conclusion:
       "Validation non-paramétrique : l'écart observé se situe au-delà du 99e percentile de la distribution nulle.",
-    block: `• Statistique : 0.1491\n• Moyenne permutations : 0.0453\n• σ permutation : 0.0342\n• p empirique : 0.0085`,
+    block: `— Statistique : 0.1491\n— Moyenne permutations : 0.0453\n— σ permutation : 0.0342\n— p empirique : 0.0085`,
   },
 ];
 
@@ -259,7 +259,7 @@ export default function Home() {
           </div>
           <div className="space-y-5">
             <span className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-yellow-300 shadow-lg glow-pulse">
-              ⚠️ Analyse indépendante
+              Analyse indépendante
             </span>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
               <span className="text-gradient-danger">E-billets Loro.ch</span>
@@ -292,7 +292,7 @@ export default function Home() {
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-20 lg:px-8 lg:py-32">
         <section className="animate-fade-up overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 px-10 py-16 text-white shadow-2xl">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="bg-gradient-to-r from-yellow-400 to-red-400 bg-clip-text text-transparent">📌 L'essentiel en 30 secondes</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-red-400 bg-clip-text text-transparent">L'essentiel en 30 secondes</span>
           </h2>
           <div className="mt-4 text-white/90">
             <p>
@@ -302,14 +302,11 @@ export default function Home() {
             </p>
           </div>
           <p className="mt-8 rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-br from-red-600/20 to-yellow-600/20 p-8 text-lg font-medium leading-relaxed text-white backdrop-blur-sm shadow-xl ring-2 ring-inset ring-yellow-400/10">
-            <strong className="text-xl">⚠️ Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
+            <strong className="text-xl">Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
           </p>
           <ul className="mt-10 grid gap-6 text-base leading-relaxed sm:grid-cols-2">
             {tlDrHighlights.map((item, index) => (
-              <li key={item} className="card-hover flex gap-4 rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:bg-white/20">
-                <span className="mt-1 text-2xl">
-                  {index === 0 ? "🔍" : index === 1 ? "📉" : index === 2 ? "📊" : "⚖️"}
-                </span>
+              <li key={item} className="card-hover rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-sm transition-all hover:bg-white/20">
                 <span className="font-medium text-white/90">{item}</span>
               </li>
             ))}
@@ -371,7 +368,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr]">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">🎲 Comprendre sans être statisticien</span>
+                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Comprendre sans être statisticien</span>
               </h2>
               <p className="text-base leading-relaxed text-white/90">
                 Dans un jeu équitable, la pièce n'a pas de mémoire : la probabilité de gagner reste stable (32.69%). Ici, la probabilité s'effondre après un gain — comme si le système se souvenait du résultat précédent pour vous défavoriser.
@@ -434,7 +431,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-2xl space-y-4">
                 <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                  <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">🔬 Protocoles et preuves scientifiques</span>
+                  <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Protocoles et preuves scientifiques</span>
                 </h2>
                 <p className="text-base leading-relaxed text-white/90">
                   309 tirages consécutifs ont été analysés via trois tests statistiques complémentaires conformément aux standards académiques. Tous rejettent l'hypothèse d'aléatoire.
@@ -501,7 +498,7 @@ export default function Home() {
 
         <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 px-8 py-12 text-white shadow-xl">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">💰 Impact financier et RTP</span>
+            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">Impact financier et RTP</span>
           </h2>
 
           <div className="mt-8 overflow-hidden rounded-2xl border border-white/20">
@@ -594,7 +591,7 @@ export default function Home() {
 
         <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 px-8 py-12 text-white shadow-xl">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">⚖️ Cadre légal suisse</span>
+            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Cadre légal suisse</span>
           </h2>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -621,7 +618,7 @@ export default function Home() {
             <ul className="space-y-3 text-white/80">
               {responseConcerns.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="text-red-500">•</span>
+                  <span className="text-red-500">—</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -633,7 +630,7 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                🔧 Méthodologie et limites
+                Méthodologie et limites
               </h2>
               <div className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
