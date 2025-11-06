@@ -2,14 +2,15 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { fullTranslations } from '@/lib/fullTranslations';
-import { 
-  tlDrHighlights, 
-  tests, 
-  legalArticles, 
+import {
+  tlDrHighlights,
+  tests,
+  legalArticles,
   responseConcerns,
   methodologyData,
-  sequenceVisualization 
+  sequenceVisualization
 } from '@/lib/bilingualData';
+import { DataVisualizations } from './DataVisualizations';
 
 export function FullClientPage() {
   const { language, t } = useLanguage();
@@ -538,7 +539,26 @@ export function FullClientPage() {
           </div>
         </section>
 
-        {/* Section 5: Legal Framework */}
+        {/* Section 5: Data Visualizations */}
+        <section className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                {language === 'fr' ? 'Visualisations des Données Réelles' : 'Real Data Visualizations'}
+              </span>
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-white/90">
+              {language === 'fr'
+                ? 'Analyse graphique basée sur les données brutes de 309 tirages.'
+                : 'Graphical analysis based on raw data from 309 draws.'}
+            </p>
+            <div className="mt-8">
+              <DataVisualizations language={language} />
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: Legal Framework */}
         <section className="bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 text-white">
           <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -580,7 +600,7 @@ export function FullClientPage() {
           </div>
         </section>
 
-        {/* Section 6: Methodology */}
+        {/* Section 7: Methodology */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 text-white">
           <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
@@ -636,7 +656,7 @@ export function FullClientPage() {
           </div>
         </section>
 
-        {/* Section 7: Contact */}
+        {/* Section 8: Contact */}
         <section id="contact" className="bg-gradient-to-br from-zinc-900 via-neutral-900 to-stone-900 text-white">
           <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">

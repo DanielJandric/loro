@@ -1,0 +1,200 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import {
+  parseCSVData,
+  calculateGameStats,
+  calculateConditionalProbabilities,
+  calculateGlobalStats,
+  type GameStats,
+  type ConditionalProbs,
+} from '@/lib/dataParser';
+import { RTPBarChart } from './RTPBarChart';
+import { RTPProgressBar } from './RTPProgressBar';
+import { ConditionalProbChart } from './ConditionalProbChart';
+import { getGameIcon } from './GameIcons';
+
+interface DataVisualizationsProps {
+  language: 'fr' | 'en';
+}
+
+export function DataVisualizations({ language }: DataVisualizationsProps) {
+  const [gameStats, setGameStats] = useState<GameStats[]>([]);
+  const [conditionalProbs, setConditionalProbs] = useState<ConditionalProbs | null>(null);
+  const [globalStats, setGlobalStats] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const response = await fetch('/data.csv');
+        if (!response.ok) {
+          throw new Error('Failed to load data');
+        }
+
+        const csvText = await response.text();
+        const draws = parseCSVData(csvText);
+
+        const statsMap = calculateGameStats(draws);
+        const stats = Array.from(statsMap.values());
+
+        const probs = calculateConditionalProbabilities(draws);
+        const global = calculateGlobalStats(draws);
+
+        setGameStats(stats);
+        setConditionalProbs(probs);
+        setGlobalStats(global);
+        setLoading(false);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+        setLoading(false);
+      }
+    }
+
+    loadData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center p-12">
+        <div className="text-white/60">
+          {language === 'fr' ? 'Chargement des données...' : 'Loading data...'}
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="rounded-2xl border border-red-400/30 bg-red-500/10 p-6 text-white backdrop-blur-sm">
+        <p className="font-semibold">{language === 'fr' ? 'Erreur' : 'Error'}</p>
+        <p className="mt-2 text-sm">{error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-16">
+      {/* Global Stats */}
+      {globalStats && (
+        <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
+          <h3 className="mb-6 text-2xl font-semibold text-white">
+            {language === 'fr' ? 'Statistiques Globales' : 'Global Statistics'}
+          </h3>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div>
+              <RTPProgressBar
+                rtp={globalStats.rtp}
+                label={language === 'fr' ? 'RTP Global' : 'Global RTP'}
+              />
+            </div>
+            <div className="space-y-4 rounded-2xl border border-white/20 bg-white/10 p-6">
+              <div className="flex justify-between">
+                <span className="text-white/80">{language === 'fr' ? 'Tirages totaux' : 'Total draws'}:</span>
+                <span className="font-semibold text-white">{globalStats.totalDraws}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/80">{language === 'fr' ? 'Gains' : 'Wins'}:</span>
+                <span className="font-semibold text-emerald-400">{globalStats.totalWins}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/80">{language === 'fr' ? 'Pertes' : 'Losses'}:</span>
+                <span className="font-semibold text-red-400">{globalStats.totalLosses}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/80">{language === 'fr' ? 'Enjeu total' : 'Total stake'}:</span>
+                <span className="font-semibold text-white">{globalStats.totalStake.toFixed(2)} CHF</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-white/80">{language === 'fr' ? 'Gains totaux' : 'Total winnings'}:</span>
+                <span className="font-semibold text-white">{globalStats.totalWinnings.toFixed(2)} CHF</span>
+              </div>
+              <div className="flex justify-between border-t border-white/20 pt-4">
+                <span className="text-white/80">{language === 'fr' ? 'Perte nette' : 'Net loss'}:</span>
+                <span className="font-semibold text-red-400">{globalStats.netLoss.toFixed(2)} CHF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Conditional Probabilities */}
+      {conditionalProbs && (
+        <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
+          <h3 className="mb-6 text-2xl font-semibold text-white">
+            {language === 'fr' ? 'Analyse des Probabilités Conditionnelles' : 'Conditional Probability Analysis'}
+          </h3>
+          <ConditionalProbChart probs={conditionalProbs} language={language} />
+          <div className="mt-6 rounded-2xl border border-amber-400/30 bg-amber-500/10 p-6 text-sm text-white backdrop-blur-sm">
+            <p className="font-semibold">
+              {language === 'fr' ? 'Interprétation:' : 'Interpretation:'}
+            </p>
+            <p className="mt-2">
+              {language === 'fr'
+                ? `La probabilité de gagner après un gain (${conditionalProbs.pWinAfterWin.toFixed(2)}%) est significativement plus faible que la probabilité de gagner après une perte (${conditionalProbs.pWinAfterLoss.toFixed(2)}%). Cet écart de ${conditionalProbs.gap.toFixed(2)} points suggère une dépendance temporelle.`
+                : `The probability of winning after a win (${conditionalProbs.pWinAfterWin.toFixed(2)}%) is significantly lower than the probability of winning after a loss (${conditionalProbs.pWinAfterLoss.toFixed(2)}%). This gap of ${conditionalProbs.gap.toFixed(2)} points suggests temporal dependency.`}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* RTP by Game */}
+      <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
+        <h3 className="mb-6 text-2xl font-semibold text-white">
+          {language === 'fr' ? 'RTP par Jeu' : 'RTP by Game'}
+        </h3>
+        <RTPBarChart gameStats={gameStats} language={language} />
+      </div>
+
+      {/* Game Details Table */}
+      <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
+        <h3 className="mb-6 text-2xl font-semibold text-white">
+          {language === 'fr' ? 'Détails par Jeu' : 'Game Details'}
+        </h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-left text-sm">
+            <thead className="border-b border-white/20 text-xs uppercase tracking-wide text-white/80">
+              <tr>
+                <th className="px-4 py-3">{language === 'fr' ? 'Jeu' : 'Game'}</th>
+                <th className="px-4 py-3 text-center">{language === 'fr' ? 'Tirages' : 'Draws'}</th>
+                <th className="px-4 py-3 text-right">{language === 'fr' ? 'Enjeu' : 'Stake'}</th>
+                <th className="px-4 py-3 text-right">{language === 'fr' ? 'Gains' : 'Winnings'}</th>
+                <th className="px-4 py-3 text-center">RTP</th>
+                <th className="px-4 py-3 text-center">{language === 'fr' ? 'Taux de gain' : 'Win rate'}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/10">
+              {gameStats
+                .sort((a, b) => b.totalStake - a.totalStake)
+                .map(stat => {
+                  const Icon = getGameIcon(stat.game);
+                  let rtpColor = 'text-red-400';
+                  if (stat.rtp >= 90) rtpColor = 'text-emerald-400';
+                  else if (stat.rtp >= 70) rtpColor = 'text-amber-400';
+
+                  return (
+                    <tr key={stat.game} className="text-white/80 transition-colors hover:bg-white/5">
+                      <td className="px-4 py-4">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-5 w-5 text-white/60" />
+                          <span className="font-medium text-white">{stat.game}</span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-4 text-center">{stat.count}</td>
+                      <td className="px-4 py-4 text-right">{stat.totalStake.toFixed(2)} CHF</td>
+                      <td className="px-4 py-4 text-right">{stat.totalWinnings.toFixed(2)} CHF</td>
+                      <td className={`px-4 py-4 text-center font-semibold ${rtpColor}`}>
+                        {stat.rtp.toFixed(1)}%
+                      </td>
+                      <td className="px-4 py-4 text-center">{stat.winRate.toFixed(1)}%</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
