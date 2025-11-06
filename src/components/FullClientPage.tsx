@@ -2,15 +2,16 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { fullTranslations } from '@/lib/fullTranslations';
-import {
-  tlDrHighlights,
-  tests,
-  legalArticles,
+import { 
+  tlDrHighlights, 
+  tests, 
+  legalArticles, 
   responseConcerns,
   methodologyData,
-  sequenceVisualization
+  sequenceVisualization 
 } from '@/lib/bilingualData';
 import { DataVisualizations } from './DataVisualizations';
+import Link from 'next/link';
 
 export function FullClientPage() {
   const { language, t } = useLanguage();
@@ -196,6 +197,13 @@ export function FullClientPage() {
             <p className="max-w-3xl text-xl font-medium leading-relaxed text-white/90">
               {trans.header.description}
             </p>
+            <Link 
+              href="/tests"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-purple-700 hover:to-indigo-700 hover:scale-105"
+            >
+              {language === 'fr' ? 'Voir les analyses mathématiques' : 'View mathematical analyses'}
+              <span>→</span>
+            </Link>
           </div>
           <div className="grid gap-6 rounded-3xl glass p-8 shadow-2xl lg:grid-cols-4">
             {heroStats.map((stat) => (
@@ -385,26 +393,17 @@ export function FullClientPage() {
                 </div>
               </div>
 
-              <div className="grid gap-6 lg:grid-cols-3">
-                {tests[language].map((test) => (
-                  <article
-                    key={test.title}
-                    className="flex h-full flex-col gap-5 rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm"
-                  >
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {test.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-white/80">{test.summary}</p>
-                    </div>
-                    <pre className="flex-1 rounded-xl bg-slate-900 p-4 text-xs leading-relaxed text-slate-100 shadow-inner">
-{test.block}
-                    </pre>
-                    <p className="rounded-xl border border-red-400/30 bg-red-500/20 p-4 text-sm text-white backdrop-blur-sm">
-                      {test.conclusion}
-                    </p>
-                  </article>
-                ))}
+              <div className="rounded-2xl border border-purple-400/30 bg-purple-500/10 p-6 text-center">
+                <p className="text-lg font-semibold text-white mb-4">
+                  {language === 'fr' ? '16 tests mathématiques effectués' : '16 mathematical tests performed'}
+                </p>
+                <Link 
+                  href="/tests"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-purple-700 hover:to-indigo-700 hover:scale-105"
+                >
+                  {language === 'fr' ? 'Voir tous les résultats détaillés' : 'View all detailed results'}
+                  <span>→</span>
+                </Link>
               </div>
 
               <div className="rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
