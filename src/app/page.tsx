@@ -312,8 +312,9 @@ export default function Home() {
             ))}
           </ul>
 
-          <div className="mt-12 overflow-hidden rounded-3xl border border-white/20 shadow-2xl">
-            <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
+          <div className="mt-12">
+            <div className="overflow-x-auto rounded-3xl border border-white/20 shadow-2xl">
+              <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
               <thead className="bg-gradient-to-r from-red-900 to-red-800 text-white">
                 <tr>
                   <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-white/80">
@@ -361,6 +362,7 @@ export default function Home() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </section>
 
@@ -501,7 +503,7 @@ export default function Home() {
             <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">Impact financier et RTP</span>
           </h2>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-white/20">
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-white/20">
             <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
               <thead className="bg-gradient-to-r from-orange-900 to-red-900 text-white">
                 <tr>
@@ -543,7 +545,7 @@ export default function Home() {
           </div>
 
           <h3 className="mt-12 text-xl font-semibold text-white">RTP par jeu (≥ 10 tirages)</h3>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-white/20">
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-white/20">
             <table className="min-w-full bg-slate-900/50 text-left text-sm backdrop-blur-sm">
               <thead className="bg-gradient-to-r from-pink-900 to-purple-900 text-white">
                 <tr>
