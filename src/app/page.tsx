@@ -256,7 +256,7 @@ export default function Home() {
             </span>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
               E-billets Loro.ch : système non-aléatoire détecté
-            </h1>
+          </h1>
             <p className="max-w-3xl text-lg leading-relaxed text-white/80">
               309 tirages sur 701 jours démontrent une dépendance temporelle incompatible avec un générateur de hasard certifié. Trois tests statistiques convergent (p &lt; 0.01) et révèlent une chute de 30% de vos chances immédiatement après un gain.
             </p>
@@ -273,6 +273,14 @@ export default function Home() {
                 <p className="text-sm text-white/70">{stat.detail}</p>
               </div>
             ))}
+          </div>
+
+          {/* Floating legal highlight card with hover shine */}
+          <div className="group relative mt-6 overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-6 text-white shadow-xl ring-1 ring-inset ring-white/20 backdrop-blur transition hover:shadow-2xl">
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-700 ease-out group-hover:translate-x-full group-hover:opacity-100" />
+            <p className="text-sm leading-relaxed text-white/90">
+              « La Loterie Romande viole son propre Article 2.1 qui définit les jeux comme des ‘tirages au sort’. Les tests statistiques (p &lt; 0.01) prouvent que le système n'est PAS aléatoire mais algorithmiquement manipulé pour réduire les gains consécutifs. Cette pratique viole également l’Article 8.3 qui garantit l’égalité des probabilités pour tous les billets. »
+            </p>
           </div>
         </div>
       </header>
