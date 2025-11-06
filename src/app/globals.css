@@ -3,6 +3,10 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --primary: #991b1b; /* deep red */
+  --primary-foreground: #ffffff;
+  --muted: #0b1220; /* dark blue for gradients */
+  --ring: #94a3b8; /* slate-400 */
 }
 
 @theme inline {
@@ -25,4 +29,13 @@ body {
   font-feature-settings: "liga" 1, "kern" 1;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

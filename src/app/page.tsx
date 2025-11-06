@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-16 lg:px-8 lg:py-24">
+      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-16 lg:px-8 lg:py-24" role="main">
         <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             📌 L'essentiel en 30 secondes
