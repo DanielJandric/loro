@@ -246,7 +246,7 @@ const responseConcerns = [
 ];
 
 export default function Home() {
-  // Version with all sections full-width and no white spaces
+  // Version 1.0 - Full-width sections without gaps, fixed HTML structure
   return (
     <div id="top" className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
       <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-red-950 via-red-900 to-slate-900 py-32 text-white animate-gradient">
