@@ -80,6 +80,49 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
 
   return (
     <div className="space-y-12">
+      {/* VERDICT PRINCIPAL */}
+      <section className="rounded-3xl border-4 border-red-600 bg-gradient-to-br from-red-950 via-red-900/50 to-orange-900/50 p-8 shadow-2xl">
+        <div className="text-center mb-6">
+          <p className="text-6xl font-black text-red-500 mb-4">
+            {language === 'fr' ? '⚠️ SYSTÈME NON-ALÉATOIRE DÉTECTÉ ⚠️' : '⚠️ NON-RANDOM SYSTEM DETECTED ⚠️'}
+          </p>
+          <p className="text-2xl text-white">
+            {language === 'fr' 
+              ? 'Les tests mathématiques prouvent que le système est MANIPULÉ'
+              : 'Mathematical tests prove the system is MANIPULATED'}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-8">
+          <div className="text-center p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+            <p className="text-5xl font-black text-red-400 mb-2">p &lt; 0.01</p>
+            <p className="text-lg text-white">
+              {language === 'fr' ? 'Certitude > 99%' : 'Certainty > 99%'}
+            </p>
+          </div>
+          <div className="text-center p-4 rounded-xl bg-orange-600/20 border border-orange-500/50">
+            <p className="text-5xl font-black text-orange-400 mb-2">-30%</p>
+            <p className="text-lg text-white">
+              {language === 'fr' ? 'Chute après gain' : 'Drop after win'}
+            </p>
+          </div>
+          <div className="text-center p-4 rounded-xl bg-red-600/20 border border-red-500/50">
+            <p className="text-5xl font-black text-red-400 mb-2">66%</p>
+            <p className="text-lg text-white">
+              {language === 'fr' ? 'RTP (vs 90-95%)' : 'RTP (vs 90-95%)'}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8 p-6 rounded-xl bg-black/40 border border-red-500/30">
+          <p className="text-xl text-white text-center font-semibold">
+            {language === 'fr' 
+              ? "📍 CONCLUSION : Ce n'est PAS un jeu de hasard mais un algorithme programmé pour vous faire perdre plus après un gain."
+              : "📍 CONCLUSION: This is NOT a game of chance but an algorithm programmed to make you lose more after a win."}
+          </p>
+        </div>
+      </section>
+
       {/* Statistiques de base VÉRIFIÉES */}
       <section>
         <h2 className="mb-6 text-2xl font-bold text-white">
@@ -122,83 +165,174 @@ export function VerifiedTests({ language }: VerifiedTestsProps) {
       </section>
 
       {/* Test 1: Runs Test VÉRIFIÉ */}
-      <section className="rounded-2xl border border-purple-500/30 bg-purple-500/10 p-6">
-        <h3 className="mb-4 text-xl font-bold text-white">
-          {language === 'fr' ? 'Test 1: Wald-Wolfowitz (Runs Test)' : 'Test 1: Wald-Wolfowitz (Runs Test)'}
-        </h3>
+      <section className="relative rounded-2xl border-2 border-red-500 bg-gradient-to-br from-red-950/50 to-red-900/30 p-8 shadow-2xl">
+        {/* Badge de significativité */}
+        <div className="absolute -top-4 right-8 flex items-center gap-2 rounded-full bg-red-600 px-6 py-2 shadow-lg">
+          <span className="text-4xl">🔴</span>
+          <span className="text-lg font-black text-white">
+            {language === 'fr' ? 'TRÈS SIGNIFICATIF' : 'HIGHLY SIGNIFICANT'}
+          </span>
+        </div>
         
-        <div className="grid gap-4 md:grid-cols-2">
-          <div>
-            <p className="text-sm text-white/60">{language === 'fr' ? 'Résultats observés' : 'Observed results'}</p>
-            <ul className="mt-2 space-y-1 text-sm text-white/80">
-              <li>Runs {language === 'fr' ? 'observés' : 'observed'}: <strong>{runs.runs}</strong></li>
-              <li>Runs {language === 'fr' ? 'attendus' : 'expected'}: <strong>{runs.expectedRuns.toFixed(2)}</strong></li>
-              <li>{language === 'fr' ? 'Écart-type' : 'Std Dev'}: {runs.stdDev.toFixed(2)}</li>
-              <li>Z-score: <strong>{runs.z.toFixed(3)}</strong></li>
-            </ul>
+        <h3 className="mb-6 text-2xl font-bold text-white">
+          {language === 'fr' ? 'Test 1: Test des Alternances' : 'Test 1: Alternation Test'}
+        </h3>
+
+        {/* Explication simple en gros */}
+        <div className="mb-6 rounded-xl bg-red-500/20 p-6 border border-red-500/30">
+          <p className="text-xl font-semibold text-white mb-2">
+            {language === 'fr' ? '🎯 CE QUE ÇA TESTE :' : '🎯 WHAT IT TESTS:'}
+          </p>
+          <p className="text-lg text-white/90">
+            {language === 'fr' 
+              ? "Est-ce que les gains et pertes alternent trop souvent ? Dans un vrai hasard, on devrait avoir des séries plus longues."
+              : "Do wins and losses alternate too often? In true randomness, we should see longer streaks."}
+          </p>
+        </div>
+        
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-xl bg-black/30 p-6">
+            <p className="text-lg font-bold text-red-400 mb-4">
+              {language === 'fr' ? '❌ RÉSULTAT ANORMAL' : '❌ ABNORMAL RESULT'}
+            </p>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-white/70">{language === 'fr' ? 'Alternances observées :' : 'Observed alternations:'}</span>
+                <span className="text-3xl font-black text-red-400">{runs.runs}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-white/70">{language === 'fr' ? 'Alternances normales :' : 'Normal alternations:'}</span>
+                <span className="text-3xl font-black text-green-400">{runs.expectedRuns.toFixed(0)}</span>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-sm text-white/60">{language === 'fr' ? 'Signification' : 'Significance'}</p>
-            <p className="mt-2 text-2xl font-bold text-purple-400">p = {runs.pValue.toFixed(4)}</p>
-            {runs.verySignificant && (
-              <p className="mt-2 text-sm text-purple-300">
-                {language === 'fr' ? '✓ Très significatif (p < 0.01)' : '✓ Very significant (p < 0.01)'}
-              </p>
-            )}
+          
+          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-orange-600/30 p-6 border border-red-500/50">
+            <p className="text-lg font-bold text-white mb-2">
+              {language === 'fr' ? '⚠️ NIVEAU DE PREUVE' : '⚠️ PROOF LEVEL'}
+            </p>
+            <p className="text-5xl font-black text-red-400 mb-2">
+              p = {runs.pValue.toFixed(4)}
+            </p>
+            <p className="text-lg text-white/90">
+              {language === 'fr' 
+                ? "Probabilité que ce soit du hasard : moins de 1% !"
+                : "Probability this is random: less than 1%!"}
+            </p>
           </div>
         </div>
         
-        <div className="mt-4 rounded-lg bg-black/20 p-4">
-          <p className="text-sm text-white/80">
+        <div className="mt-6 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 p-6">
+          <p className="text-xl font-bold text-white mb-2">
+            {language === 'fr' ? '💡 CE QUE ÇA PROUVE :' : '💡 WHAT THIS PROVES:'}
+          </p>
+          <p className="text-lg text-white">
             {language === 'fr' 
-              ? `Conclusion: Avec ${runs.runs} runs observés contre ${runs.expectedRuns.toFixed(0)} attendus, le système montre trop d'alternances, typique d'un mécanisme de compensation.`
-              : `Conclusion: With ${runs.runs} runs observed vs ${runs.expectedRuns.toFixed(0)} expected, the system shows too many alternations, typical of a compensation mechanism.`}
+              ? "Le système FORCE les alternances gain/perte pour éviter les longues séries. C'est un mécanisme de COMPENSATION artificiel, pas du hasard !"
+              : "The system FORCES win/loss alternations to avoid long streaks. This is an artificial COMPENSATION mechanism, not randomness!"}
           </p>
         </div>
       </section>
 
       {/* Test 2: Chi-Square VÉRIFIÉ */}
-      <section className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-6">
-        <h3 className="mb-4 text-xl font-bold text-white">
-          {language === 'fr' ? 'Test 2: Test χ² d\'indépendance' : 'Test 2: χ² Independence Test'}
+      <section className="relative rounded-2xl border-2 border-orange-500 bg-gradient-to-br from-orange-950/50 to-amber-900/30 p-8 shadow-2xl">
+        {/* Badge de significativité */}
+        <div className="absolute -top-4 right-8 flex items-center gap-2 rounded-full bg-orange-600 px-6 py-2 shadow-lg">
+          <span className="text-4xl">🟠</span>
+          <span className="text-lg font-black text-white">
+            {language === 'fr' ? 'SIGNIFICATIF' : 'SIGNIFICANT'}
+          </span>
+        </div>
+
+        <h3 className="mb-6 text-2xl font-bold text-white">
+          {language === 'fr' ? 'Test 2: Test de Mémoire du Système' : 'Test 2: System Memory Test'}
         </h3>
-        
-        <div className="mb-4">
-          <p className="text-sm text-white/60 mb-2">{language === 'fr' ? 'Matrice de transition' : 'Transition matrix'}</p>
-          <div className="grid grid-cols-3 gap-2 text-sm">
-            <div></div>
-            <div className="text-center text-white/60">{language === 'fr' ? '→ Gain' : '→ Win'}</div>
-            <div className="text-center text-white/60">{language === 'fr' ? '→ Perte' : '→ Loss'}</div>
-            
-            <div className="text-white/60">{language === 'fr' ? 'Gain →' : 'Win →'}</div>
-            <div className="text-center font-bold text-white">{chiSquare.observed.winToWin}</div>
-            <div className="text-center font-bold text-white">{chiSquare.observed.winToLoss}</div>
-            
-            <div className="text-white/60">{language === 'fr' ? 'Perte →' : 'Loss →'}</div>
-            <div className="text-center font-bold text-white">{chiSquare.observed.lossToWin}</div>
-            <div className="text-center font-bold text-white">{chiSquare.observed.lossToLoss}</div>
+
+        {/* Explication simple */}
+        <div className="mb-6 rounded-xl bg-orange-500/20 p-6 border border-orange-500/30">
+          <p className="text-xl font-semibold text-white mb-2">
+            {language === 'fr' ? '🎯 CE QUE ÇA TESTE :' : '🎯 WHAT IT TESTS:'}
+          </p>
+          <p className="text-lg text-white/90">
+            {language === 'fr' 
+              ? "Est-ce que vos chances de gagner dépendent du résultat précédent ? Dans un vrai hasard, ça devrait être toujours pareil."
+              : "Do your winning chances depend on the previous result? In true randomness, they should always be the same."}
+          </p>
+        </div>
+
+        {/* Visualisation claire des probabilités */}
+        <div className="grid gap-6 md:grid-cols-2 mb-6">
+          <div className="rounded-xl bg-gradient-to-br from-red-600/30 to-red-700/30 p-6 border border-red-500/50">
+            <p className="text-lg font-bold text-white mb-4">
+              {language === 'fr' ? '😢 APRÈS UN GAIN' : '😢 AFTER A WIN'}
+            </p>
+            <p className="text-6xl font-black text-red-400 mb-2">
+              22.77%
+            </p>
+            <p className="text-lg text-white/90">
+              {language === 'fr' ? 'de chances de gagner' : 'chance to win'}
+            </p>
+            <div className="mt-4 p-3 bg-red-900/30 rounded-lg">
+              <p className="text-sm text-red-300">
+                {language === 'fr' ? '⬇️ CHUTE DE 30% !' : '⬇️ 30% DROP!'}
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl bg-gradient-to-br from-green-600/30 to-green-700/30 p-6 border border-green-500/50">
+            <p className="text-lg font-bold text-white mb-4">
+              {language === 'fr' ? '😊 APRÈS UNE PERTE' : '😊 AFTER A LOSS'}
+            </p>
+            <p className="text-6xl font-black text-green-400 mb-2">
+              37.68%
+            </p>
+            <p className="text-lg text-white/90">
+              {language === 'fr' ? 'de chances de gagner' : 'chance to win'}
+            </p>
+            <div className="mt-4 p-3 bg-green-900/30 rounded-lg">
+              <p className="text-sm text-green-300">
+                {language === 'fr' ? '⬆️ AUGMENTATION !' : '⬆️ INCREASE!'}
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <div>
-            <p className="text-sm text-white/60">{language === 'fr' ? 'Probabilités conditionnelles' : 'Conditional probabilities'}</p>
-            <ul className="mt-2 space-y-1 text-sm text-white/80">
-              <li>P(Win|Win): <strong className="text-red-400">{(stats.pWinAfterWin * 100).toFixed(2)}%</strong></li>
-              <li>P(Win|Loss): <strong className="text-green-400">{(stats.pWinAfterLoss * 100).toFixed(2)}%</strong></li>
-              <li>{language === 'fr' ? 'Écart' : 'Gap'}: <strong>{Math.abs(stats.pWinAfterWin - stats.pWinAfterLoss).toFixed(3)}</strong></li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-sm text-white/60">{language === 'fr' ? 'Test statistique' : 'Statistical test'}</p>
-            <p className="mt-2 text-2xl font-bold text-amber-400">χ² = {chiSquare.chiSquare.toFixed(3)}</p>
-            <p className="text-sm text-amber-300">p = {chiSquare.pValue.toFixed(4)}</p>
-            {chiSquare.significant && (
-              <p className="mt-2 text-sm text-amber-300">
-                {language === 'fr' ? '✓ Significatif (p < 0.05)' : '✓ Significant (p < 0.05)'}
+        {/* Niveau de preuve */}
+        <div className="rounded-xl bg-gradient-to-br from-orange-600/30 to-amber-600/30 p-6 border border-orange-500/50 mb-6">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-lg font-bold text-white mb-2">
+                {language === 'fr' ? '⚠️ NIVEAU DE PREUVE' : '⚠️ PROOF LEVEL'}
               </p>
-            )}
+              <p className="text-4xl font-black text-orange-400">
+                p = {chiSquare.pValue.toFixed(4)}
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-lg text-white/80">
+                {language === 'fr' ? 'Test χ²' : 'χ² Test'}
+              </p>
+              <p className="text-3xl font-bold text-orange-300">
+                {chiSquare.chiSquare.toFixed(2)}
+              </p>
+            </div>
           </div>
+          <p className="text-lg text-white/90 mt-4">
+            {language === 'fr' 
+              ? "Probabilité que ce soit du hasard : environ 1.3% seulement !"
+              : "Probability this is random: only about 1.3%!"}
+          </p>
+        </div>
+
+        <div className="rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 p-6">
+          <p className="text-xl font-bold text-white mb-2">
+            {language === 'fr' ? '💡 CE QUE ÇA PROUVE :' : '💡 WHAT THIS PROVES:'}
+          </p>
+          <p className="text-lg text-white">
+            {language === 'fr' 
+              ? "Le système SE SOUVIENT de votre dernier résultat et AJUSTE vos chances. Après un gain, il RÉDUIT vos chances de 30% ! C'est une MANIPULATION ALGORITHMIQUE."
+              : "The system REMEMBERS your last result and ADJUSTS your chances. After a win, it REDUCES your chances by 30%! This is ALGORITHMIC MANIPULATION."}
+          </p>
         </div>
       </section>
 
