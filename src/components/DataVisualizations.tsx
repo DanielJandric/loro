@@ -168,8 +168,7 @@ export function DataVisualizations({ language }: DataVisualizationsProps) {
                 .map(stat => {
                   const Icon = getGameIcon(stat.game);
                   let rtpColor = 'text-red-400';
-                  if (stat.rtp >= 90) rtpColor = 'text-emerald-400';
-                  else if (stat.rtp >= 70) rtpColor = 'text-amber-400';
+                  if (stat.rtp >= 70) rtpColor = 'text-emerald-400';
 
                   return (
                     <tr key={stat.game} className="text-white/80 transition-colors hover:bg-white/5">

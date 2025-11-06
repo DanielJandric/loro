@@ -121,7 +121,7 @@ export function FullClientPage() {
       won: "52 CHF", 
       rtp: "72.22%", 
       winRate: "50.00%", 
-      tone: "neutral" 
+      tone: "positive" 
     },
     { 
       game: language === 'fr' ? "Trésor des Pirates" : "Pirate Treasure", 
@@ -130,7 +130,7 @@ export function FullClientPage() {
       won: "1405 CHF", 
       rtp: "66.43%", 
       winRate: "32.62%", 
-      tone: "neutral" 
+      tone: "negative" 
     },
     { 
       game: "Tribolo", 

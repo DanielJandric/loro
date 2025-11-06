@@ -75,10 +75,8 @@ export function RTPBarChart({ gameStats, language }: RTPBarChartProps) {
           const barWidth = (stat.rtp / maxRTP) * graphWidth;
 
           let fillColor = 'url(#badGradient)';
-          if (stat.rtp >= 90) {
+          if (stat.rtp >= 70) {
             fillColor = 'url(#goodGradient)';
-          } else if (stat.rtp >= 70) {
-            fillColor = 'url(#mediumGradient)';
           }
 
           return (
