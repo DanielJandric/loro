@@ -24,7 +24,7 @@ export default function OpengraphImage() {
             "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
@@ -33,16 +33,17 @@ export default function OpengraphImage() {
               background: "rgba(255,255,255,0.08)",
               border: "1px solid rgba(255,255,255,0.15)",
               fontSize: 20,
-              letterSpacing: 2,
+              letterSpacing: "2px",
               textTransform: "uppercase",
+              marginBottom: 12,
             }}
           >
             Analyse indépendante
           </div>
-          <h1 style={{ fontSize: 64, lineHeight: 1.1, margin: 0, color: "#fff" }}>
+          <h1 style={{ fontSize: 64, lineHeight: 1.1, margin: 0, color: "#fff", marginTop: 12 }}>
             E-billets Loro.ch : Anomalies statistiques détectées
           </h1>
-          <p style={{ fontSize: 28, color: "#cbd5e1", margin: 0 }}>
+          <p style={{ fontSize: 28, color: "#cbd5e1", margin: 0, marginTop: 8 }}>
             Trois tests (p &lt; 0.01) • Baisse de 30% après un gain • RTP 66.14%
           </p>
         </div>
