@@ -287,10 +287,8 @@ export default function Home() {
       </header>
 
       <main id="main" className="relative" role="main">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-red-50/20 to-slate-900/10" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-20 lg:px-8 lg:py-32">
-        <section className="animate-fade-up overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 px-10 py-16 text-white shadow-2xl">
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             <span className="bg-gradient-to-r from-yellow-400 to-red-400 bg-clip-text text-transparent">L'essentiel en 30 secondes</span>
           </h2>
@@ -364,9 +362,11 @@ export default function Home() {
             </table>
             </div>
           </div>
+          </div>
         </section>
 
-        <section className="animate-fade-up overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 px-10 py-16 text-white shadow-2xl">
+        <section className="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr]">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -426,9 +426,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
         </section>
 
-        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 px-8 py-12 text-white shadow-xl">
+        <section className="bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <div className="space-y-10">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="max-w-2xl space-y-4">
@@ -496,9 +498,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>
         </section>
 
-        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 px-8 py-12 text-white shadow-xl">
+        <section className="bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">Impact financier et RTP</span>
           </h2>
@@ -589,9 +593,11 @@ export default function Home() {
           <div className="mt-8 rounded-2xl border border-amber-400/30 bg-amber-500/20 p-6 text-sm text-white backdrop-blur-sm">
             <strong>Projection collective :</strong> si 1 000 joueurs subissent une perte moyenne de 1 000 CHF, le préjudice cumulé atteint 1 million CHF. Une investigation Gespa est nécessaire pour confirmer et quantifier l'exposition réelle.
           </div>
+          </div>
         </section>
 
-        <section className="overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 px-8 py-12 text-white shadow-xl">
+        <section className="bg-gradient-to-br from-purple-900 via-violet-900 to-indigo-900 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Cadre légal suisse</span>
           </h2>
@@ -626,9 +632,11 @@ export default function Home() {
               ))}
             </ul>
           </div>
+          </div>
         </section>
 
-        <section className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 px-8 py-12 text-white shadow-xl shadow-slate-900/20">
+        <section className="bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 text-white">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -732,28 +740,28 @@ export default function Home() {
               </p>
             </div>
           </div>
+          </div>
         </section>
-        </div>
       </main>
 
-      <footer className="border-t border-slate-200 bg-white/90 py-10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <footer className="bg-slate-900 text-white">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
-            <p className="font-semibold text-slate-900">
+            <p className="font-semibold text-white">
               Analyse statistique E-billets Loro.ch
             </p>
-            <p className="text-xs text-slate-500">Dernière mise à jour : novembre 2025</p>
+            <p className="text-xs text-slate-400">Dernière mise à jour : novembre 2025</p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs">
-            <a href="#top" className="transition hover:text-slate-900">
+            <a href="#top" className="transition hover:text-white">
               Haut de page
             </a>
-            <a href="mailto:contact@exemple.ch" className="transition hover:text-slate-900">
+            <a href="mailto:contact@exemple.ch" className="transition hover:text-white">
               Contact
             </a>
             <a
               href="mailto:contact@exemple.ch?subject=Demande%20Dataset"
-              className="transition hover:text-slate-900"
+              className="transition hover:text-white"
             >
               Demander le dataset
             </a>
