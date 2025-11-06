@@ -247,24 +247,26 @@ const responseConcerns = [
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-slate-100 text-slate-900">
-      <header className="border-b border-white/10 bg-gradient-to-br from-[rgba(185,28,28,0.94)] via-[rgba(153,27,27,0.92)] to-[rgba(67,20,7,0.88)] py-24 text-white">
+    <div id="top" className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
+      <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-red-950 via-red-900 to-slate-900 py-32 text-white animate-gradient">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 lg:px-8">
           <div className="space-y-5">
-            <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-              Analyse indépendante
+            <span className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.35em] text-yellow-300 shadow-lg glow-pulse">
+              ⚠️ Analyse indépendante
             </span>
-            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              E-billets Loro.ch : système non-aléatoire détecté
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+              <span className="text-gradient-danger">E-billets Loro.ch</span>
+              <br />
+              <span className="text-white">Système non-aléatoire détecté</span>
           </h1>
-            <p className="max-w-3xl text-lg leading-relaxed text-white/80">
+            <p className="max-w-3xl text-xl font-medium leading-relaxed text-white/90">
               309 tirages sur 701 jours démontrent une dépendance temporelle incompatible avec un générateur de hasard certifié. Trois tests statistiques convergent (p &lt; 0.01) et révèlent une chute de 30% de vos chances immédiatement après un gain.
             </p>
           </div>
-          <div className="grid gap-6 rounded-3xl border border-white/10 bg-white/10 p-8 backdrop-blur lg:grid-cols-4">
+          <div className="grid gap-6 rounded-3xl glass p-8 shadow-2xl lg:grid-cols-4">
             {heroStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col gap-2">
-                <span className="text-3xl font-semibold tracking-tight lg:text-4xl">
+              <div key={stat.label} className="flex flex-col gap-2 card-hover rounded-2xl bg-white/5 p-4 backdrop-blur">
+                <span className="text-4xl font-black tracking-tight lg:text-5xl">
                   {stat.value}
                 </span>
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/80">
@@ -276,19 +278,19 @@ export default function Home() {
           </div>
 
           {/* Floating legal highlight card with hover shine */}
-          <div className="group relative mt-6 overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-6 text-white shadow-xl ring-1 ring-inset ring-white/20 backdrop-blur transition hover:shadow-2xl">
+          <div className="group relative mt-8 overflow-hidden rounded-3xl border-2 border-yellow-400/30 bg-gradient-to-r from-yellow-500/20 to-red-500/20 p-8 text-white shadow-2xl ring-2 ring-inset ring-yellow-400/20 backdrop-blur-lg transition-all hover:scale-[1.02] hover:shadow-yellow-400/20 hover:shadow-2xl">
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition duration-700 ease-out group-hover:translate-x-full group-hover:opacity-100" />
-            <p className="text-sm leading-relaxed text-white/90">
+            <p className="text-base font-semibold leading-relaxed text-white">
               « La Loterie Romande viole son propre Article 2.1 qui définit les jeux comme des ‘tirages au sort’. Les tests statistiques (p &lt; 0.01) prouvent que le système n'est PAS aléatoire mais algorithmiquement manipulé pour réduire les gains consécutifs. Cette pratique viole également l’Article 8.3 qui garantit l’égalité des probabilités pour tous les billets. »
             </p>
           </div>
         </div>
       </header>
 
-      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-16 lg:px-8 lg:py-24" role="main">
-        <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            📌 L'essentiel en 30 secondes
+      <main id="main" className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-20 lg:px-8 lg:py-32" role="main">
+        <section className="animate-fade-up rounded-3xl bg-white px-10 py-16 shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/50">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <span className="text-gradient">📌 L'essentiel en 30 secondes</span>
           </h2>
           <div className="mt-4 text-slate-700">
             <p>
@@ -297,21 +299,23 @@ export default function Home() {
               rejettent l&apos;hypothèse d&apos;aléatoire.
             </p>
           </div>
-          <p className="mt-6 rounded-2xl border border-red-200 bg-red-50/80 p-6 text-base leading-relaxed text-red-900">
-            <strong>Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
+          <p className="mt-8 rounded-3xl border-2 border-red-300 bg-gradient-to-br from-red-50 to-red-100 p-8 text-lg font-medium leading-relaxed text-red-900 shadow-xl">
+            <strong className="text-xl">⚠️ Conclusion :</strong> le système Loro.ch ne fonctionne pas comme un générateur aléatoire. Trois tests indépendants (p &lt; 0.01) montrent une dépendance directe entre chaque tirage et le précédent, ce qui est mathématiquement incompatible avec un jeu de hasard.
           </p>
-          <ul className="mt-8 grid gap-4 text-base leading-relaxed sm:grid-cols-2">
-            {tlDrHighlights.map((item) => (
-              <li key={item} className="flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <span className="mt-1 text-lg">•</span>
-                <span>{item}</span>
+          <ul className="mt-10 grid gap-6 text-base leading-relaxed sm:grid-cols-2">
+            {tlDrHighlights.map((item, index) => (
+              <li key={item} className="card-hover flex gap-4 rounded-2xl border-2 border-slate-200 bg-gradient-to-br from-slate-50 to-white p-6 shadow-lg">
+                <span className="mt-1 text-2xl">
+                  {index === 0 ? "🔍" : index === 1 ? "📉" : index === 2 ? "📊" : "⚖️"}
+                </span>
+                <span className="font-medium">{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
+          <div className="mt-12 overflow-hidden rounded-3xl border-2 border-slate-200 shadow-2xl">
             <table className="min-w-full bg-white text-left text-sm">
-              <thead className="bg-slate-900 text-slate-100">
+              <thead className="bg-gradient-to-r from-slate-900 to-slate-800 text-slate-100">
                 <tr>
                   <th className="px-6 py-4 font-semibold uppercase tracking-wide text-xs text-slate-200">
                     Situation
@@ -361,11 +365,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white px-8 py-12 shadow-xl shadow-slate-900/5">
+        <section className="animate-fade-up rounded-3xl bg-gradient-to-br from-white to-slate-50 px-10 py-16 shadow-2xl shadow-slate-900/10">
           <div className="grid gap-12 lg:grid-cols-[1.25fr_1fr]">
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                🎲 Comprendre sans être statisticien
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                <span className="text-gradient">🎲 Comprendre sans être statisticien</span>
               </h2>
               <p className="text-base leading-relaxed text-slate-600">
                 Dans un jeu équitable, la pièce n'a pas de mémoire : la probabilité de gagner reste stable (32.69%). Ici, la probabilité s'effondre après un gain — comme si le système se souvenait du résultat précédent pour vous défavoriser.
