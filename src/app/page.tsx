@@ -17,7 +17,7 @@ const heroStats = [
   {
     value: "99.7%",
     label: "Niveau de confiance",
-    detail: "Basé sur 3 tests convergents",
+    detail: "BasÃ© sur 3 tests convergents",
   },
 ];
 
