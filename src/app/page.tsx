@@ -1,5 +1,5 @@
-import { ClientPage } from '@/components/ClientPage';
+import { FullClientPage } from '@/components/FullClientPage';
 
 export default function Home() {
-  return <ClientPage />;
+  return <FullClientPage />;
 }
